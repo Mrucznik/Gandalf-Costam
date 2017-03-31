@@ -1,31 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using System.Timers;
 
-public class PlayerMove : MonoBehaviour {
+public class PlayerMove : MonoBehaviour
+{
 
-    Rigidbody2D rb;
-    public float force = 100f;
+    int jump2 = 0, floor = 0;
+    public Rigidbody2D rb;
 
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody2D>();
-	}
-
-    void OnCollisionEnter2D(Collision2D col)
+    // Use this for initialization
+    void Start()
     {
-        if(col.gameObject.layer == 10)
-        {
-            Destroy(this.gameObject);
-        }
+        rb = GetComponent<Rigidbody2D>();
+
     }
+
     void FixedUpdate()
     {
-        rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * force, 0));
+
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    public float speed = 10.0F;
+    void Update()
+    {
+
+        float translationH = Input.GetAxis("Horizontal") * speed;
+
+        translationH *= Time.deltaTime;
+        transform.Translate(translationH, 0, 0);
+
+
+
+
+    }
+
 }
