@@ -1,56 +1,256 @@
 ********************************************************************************
-*                     Saturday, April 01, 2017 5:32:51 AM                      *
+*                     Saturday, April 01, 2017 6:55:10 PM                      *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 2.0.3.30
 Platform: Windows
 Target assembly: Assembly-CSharp.dll
-Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
-Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity
-Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
 Compiler: Microsoft C# 6.0
 
 - Compilation -----------------------------------------------
 
-Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-bc964d147927045478503e02c45d81a1 
-Exit code: 1
-Elapsed time: 0.51 sec
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-28494215712334b45bf7ab99568746cf 
+Exit code: 0
+Elapsed time: 2.66 sec
 
 - Compiler output (0 lines):
 
-- Compiler errors (7 lines):
-0: Assets\_SCRIPTS\ShootControl.cs(13,20): error CS1061: 'PlayerMove' does not contain a definition for 'znak' and no extension method 'znak' accepting a first argument of type 'PlayerMove' could be found (are you missing a using directive or an assembly reference?)
-1: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-2: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
-3: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-4: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-5: Assets\_SCRIPTS\PlayerMove.cs(8,20): warning CS0414: The field 'PlayerMove.floor' is assigned but its value is never used
-6: Assets\_SCRIPTS\PlayerMove.cs(8,9): warning CS0414: The field 'PlayerMove.jump2' is assigned but its value is never used
+- Compiler errors (4 lines):
+0: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
+1: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+2: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+3: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.12 sec
+
+- pdb2mdb.exe output (0 lines):
 ********************************************************************************
-*                     Saturday, April 01, 2017 5:32:59 AM                      *
+*                     Saturday, April 01, 2017 6:55:14 PM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.dll" @Temp/UnityTempFile-e8ddbae437faf5548a5c1b81a37b7241 
+Exit code: 0
+Elapsed time: 2.15 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.10 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 6:56:50 PM                      *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 2.0.3.30
 Platform: Windows
 Target assembly: Assembly-CSharp.dll
-Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
-Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity
-Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
 Compiler: Microsoft C# 6.0
 
 - Compilation -----------------------------------------------
 
-Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-8a99ec1dd88f92f4696af150a11ed5d4 
-Exit code: 1
-Elapsed time: 0.38 sec
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-d87fbd3cff601194d9e1491fae0583bf 
+Exit code: 0
+Elapsed time: 2.55 sec
 
 - Compiler output (0 lines):
 
-- Compiler errors (7 lines):
-0: Assets\_SCRIPTS\ShootControl.cs(13,20): error CS1061: 'PlayerMove' does not contain a definition for 'znak' and no extension method 'znak' accepting a first argument of type 'PlayerMove' could be found (are you missing a using directive or an assembly reference?)
-1: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-2: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
-3: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-4: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-5: Assets\_SCRIPTS\PlayerMove.cs(8,9): warning CS0414: The field 'PlayerMove.jump2' is assigned but its value is never used
-6: Assets\_SCRIPTS\PlayerMove.cs(8,20): warning CS0414: The field 'PlayerMove.floor' is assigned but its value is never used
+- Compiler errors (4 lines):
+0: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
+1: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+2: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+3: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.14 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 6:56:53 PM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.dll" @Temp/UnityTempFile-a102283f1b93b334bac73a0dad590754 
+Exit code: 0
+Elapsed time: 2.18 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.10 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 6:58:02 PM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-915208f0356270b41a9410725ef75419 
+Exit code: 0
+Elapsed time: 3.16 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (4 lines):
+0: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
+1: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+2: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+3: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.20 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 6:58:06 PM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.dll" @Temp/UnityTempFile-9eb2e434138fac241b7613efd7f26096 
+Exit code: 0
+Elapsed time: 3.25 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.12 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 6:59:17 PM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-c6de3cc589635f34695a64e6b42bb06c 
+Exit code: 0
+Elapsed time: 2.68 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (4 lines):
+0: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
+1: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+2: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+3: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.12 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 6:59:21 PM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam
+Target profile directory: D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0
+Unity 'Data' or 'Frameworks' directory: D:/Programy/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\mscorlib.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Core.dll" -r:"D:\Programy\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.dll" @Temp/UnityTempFile-707574bc574a48c4ca99523bf1abd2ba 
+Exit code: 0
+Elapsed time: 2.18 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\lukas\Desktop\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.10 sec
+
+- pdb2mdb.exe output (0 lines):
