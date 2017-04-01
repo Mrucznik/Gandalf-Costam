@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class ShootControl : MonoBehaviour {
 
-    public float lifeTime = 10f;
+    public int damage;
+    public float destroyDelay;
     public float speed;
     public PlayerMove rb;
+    public GameObject deathParticle;
+    public GameObject brokenBullet;
     // Use this for initialization
     void Start () {
         rb = FindObjectOfType<PlayerMove>();
@@ -15,7 +18,7 @@ public class ShootControl : MonoBehaviour {
 	
 	// UpdateTime is called once per frame
 	void Update () {
-        
+        StartCoroutine("WaitAndDestroy");
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
         if(lifeTime <=0)
         {
@@ -27,16 +30,20 @@ public class ShootControl : MonoBehaviour {
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag != "Player")
+        if(other.tag == "Enemy")
         {
-            die();
-            Destroy(other.gameObject);
+            //Instantiate(deathParticle, other.transform.position, other.transform.rotation);
+            //Destroy(other.gameObject);
+
+            other.GetComponent<EnemyHealtControl>().giveDMG(damage);
         }
+        Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
+        Destroy(gameObject);
     }
-     
-    void die()
+    public IEnumerator WaitAndDestroy()
     {
-        Destroy(this.gameObject);
+        yield return new WaitForSeconds(destroyDelay);
+        Destroy(gameObject);
     }
 
 }

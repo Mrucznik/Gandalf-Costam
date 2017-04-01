@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprilisJam", "AprilisJam.csproj", "{D0EE2E74-9909-D7C7-C131-D4EA1D0F6542}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AprilisJam.Editor", "AprilisJam.Editor.csproj", "{2D4909C0-E6C3-2DBB-6D70-B5D28A4D3FC8}"

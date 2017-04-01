@@ -13,9 +13,6 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void FixedUpdate()
-    {
-
     }
 
     void OnCollisionEnter2D(Collision2D col)
