@@ -17,6 +17,7 @@ public class PlayerMove : MonoBehaviour {
         if(col.gameObject.layer == 10)
         {
             Destroy(this.gameObject);
+            Application.LoadLevel(0);
         }
     }
     void FixedUpdate()
