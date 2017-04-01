@@ -4,7 +4,6 @@ using System.Timers;
 
 public class PlayerMove : MonoBehaviour
 {
-    public int obrot = 0, znak = 1;
   
     // Use this for initialization
     void Start()
@@ -17,26 +16,25 @@ public class PlayerMove : MonoBehaviour
 
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Gift")
+        {
+            Destroy(col.gameObject);
+        }
+    }
+
     public float speed = 1.0F;
     void Update()
     {
-        float translationH = Input.GetAxis("Horizontal") * 2;
-        translationH *= Time.deltaTime;
-        if (translationH < 0 && obrot < 1)
-        {
-            obrot = 1;
-            transform.Rotate(0, 180, 0);
-            znak = -1;
 
-        }
-        else if(translationH > 0 && obrot >= 1)
-        {
-            obrot = 0;
-            transform.Rotate(0, 180, 0);
-            znak = 1;
-            
-        }
-        transform.Translate(znak*translationH, 0, 0);
+        float translationH = Input.GetAxis("Horizontal") * speed;
+        translationH *= Time.deltaTime;
+        transform.Translate(translationH, 0, 0);
+        if (translationH < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else if (translationH > 0)
+            transform.localScale = new Vector3(1, 1, 1);
 
     }
    
