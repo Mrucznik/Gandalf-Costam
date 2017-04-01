@@ -5,60 +5,19 @@ namespace Assets.Backend.Bonus
 {
     public class BonusState
     {
-        private Bonus bonus;
-        private bool activated;
-        private int timeLeft;
-        private Timer timer;
-
-        BonusState(Bonus bonus, int timeLeft)
+        public BonusState()
         {
-            this.bonus = bonus;
-            activated = false;
-            this.timeLeft = timeLeft;
-            timer = new Timer(1000);
-            timer.Elapsed += (source, e) =>
-            {
-                NextTimerStep();
-            };
+
         }
 
-        public bool Activated
+        public void Update(int time)
         {
-            get { return activated; }
-            set { activated = value; }
+            Debug.Log($"Bonus aktywny, czas do znikniêcia: {time}");
         }
 
-        public void Activate()
+        public void Display(int time)
         {
-            activated = true;
-            timer.Start();
-        }
-
-        public void Deactivate()
-        {
-            timer.Stop();
-            bonus.Deactivate();
-            activated = false;
-        }
-
-        private void NextTimerStep()
-        {
-            timeLeft--;
-            if (timeLeft <= 0)
-            {
-                TimerEnd();
-            }
-        }
-
-        private void TimerEnd()
-        {
-            Deactivate();
-        }
-
-        //Graficzne
-        public void Display()
-        {
-            Debug.Log($"Bonus aktywny, czas do znikniêcia: {timeLeft}");
+            Debug.Log($"Bonus wystartowa³, czas do znikniêcia: {time}");
         }
 
         public void Hide()

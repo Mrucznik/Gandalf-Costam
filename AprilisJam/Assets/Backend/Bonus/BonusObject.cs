@@ -1,15 +1,16 @@
 using System.Timers;
+using UnityEngine;
 
 namespace Assets.Backend.Bonus
 {
-    public class BonusObject
+    public abstract class BonusObject
     {
-        private int lifetime;
-        private Timer timer;
-
-        BonusObject()
+        public BonusObject()
         {
             
         }
+
+        public abstract void Display();
+        public abstract void Hide();
     }
 }

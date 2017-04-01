@@ -2,9 +2,9 @@
 {
     public class InvisibilityBehaviour : BonusBehaviour
     {
-        public override void ActivateBehaviour()
+        public override void ActivateBehaviour(int time)
         {
-            base.ActivateBehaviour();
+            base.ActivateBehaviour(time);
         }
 
         public override void DeactivateBehaviour()
