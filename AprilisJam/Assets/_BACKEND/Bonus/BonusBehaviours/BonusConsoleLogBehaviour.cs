@@ -6,7 +6,7 @@ namespace Assets._BACKEND.Bonus.BonusBehaviours
     {
         public BonusConsoleLogBehaviour()
         {
-            _state = new BonusState();
+            _state = new BonusState("Logowanie");
         }
 
         public override void ActivateBehaviour(int time)

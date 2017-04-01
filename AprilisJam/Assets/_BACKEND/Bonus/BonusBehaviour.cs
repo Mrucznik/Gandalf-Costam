@@ -3,11 +3,11 @@
     public abstract class BonusBehaviour
     {
         protected BonusState _state;
-        private bool _active;
+        protected bool _active;
 
         public void UpdateBehaviourTime(int time)
         {
-            _state?.Update(time);
+            _state?.UpdateTime(time);
         }
 
         public virtual void ActivateBehaviour(int time)
@@ -25,6 +25,12 @@
         public virtual bool IsBehaviourActivated()
         {
             return _active;
+        }
+
+        public virtual void Update()
+        {
+            if(_active)
+                _state?.Update();
         }
     }
 }

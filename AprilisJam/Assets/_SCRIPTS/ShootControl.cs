@@ -13,7 +13,7 @@ public class ShootControl : MonoBehaviour {
         speed = rb.znak * speed;
 	}
 	
-	// Update is called once per frame
+	// UpdateTime is called once per frame
 	void Update () {
         
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);

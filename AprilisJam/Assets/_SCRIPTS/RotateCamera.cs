@@ -1,41 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Timers;
+using Assets._BACKEND.Bonus;
+using Assets._BACKEND.Bonus.BonusBehaviours;
+using Assets._BACKEND.Bonus.BonusObjects;
 
 public class RotateCamera : MonoBehaviour
 {
-    float rotTimer = 0f;
-    public float timer = 5f;
-    // Use this for initialization
+    private Bonus bonus;
+
     void Start()
     {
-
+        bonus = new Bonus(new BonusRotateCameraBehaviour(), new BonusConsoleLogObject());
     }
 
     void FixedUpdate()
     {
-
     }
 
     void Update()
     {
-        
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKey(KeyCode.P))
         {
-            rotTimer += timer;
+            if(!bonus.IsBehaviourActivated())
+                bonus.Activate();
         }
-        if(rotTimer > 0)
-        {
-            Debug.Log(rotTimer);
-            Camera.main.transform.Rotate(0, 0, 90 * Time.deltaTime);
-        }
-        else
-        {
-            Camera.main.transform.Rotate(0, 0, -Camera.main.transform.rotation.z * Time.deltaTime);
-        }
-        
-        rotTimer -= .1f * Time.deltaTime;
-
+        bonus.Update();
     }
+
 
 }

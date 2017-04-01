@@ -39,6 +39,12 @@ namespace Assets._BACKEND.Bonus
             InitializeTimers();
         }
 
+        public void Update()
+        {
+            _behaviour.Update();
+            _object?.Update();
+        }
+
         public void Activate()
         {
             ActivateBehaviour();
@@ -51,44 +57,55 @@ namespace Assets._BACKEND.Bonus
 
         private void DisplayObject()
         {
-            _object.Display();
-            lifeTimer.Start();
+            _object?.Display();
+            lifeTimer?.Start();
         }
 
         private void DestroyObject()
         {
-            _object.Hide();
-            lifeTimer.Stop();
+            _object?.Hide();
+            lifeTimer?.Stop();
         }
 
         private void ActivateBehaviour()
         {
             _behaviour.ActivateBehaviour(behaviourtime);
-            behaviourTimer.Start();
+            behaviourTimer?.Start();
         }
 
         private void DeactivateBehaviour()
         {
             _behaviour.DeactivateBehaviour();
-            behaviourTimer.Stop();
+            behaviourTimer?.Stop();
         }
 
-        private void SetBonusBehaviour(BonusBehaviour b)
+        public bool IsBehaviourActivated()
+        {
+            return _behaviour.IsBehaviourActivated();
+        }
+
+        public void SetBonusBehaviour(BonusBehaviour b)
         {
             _behaviour = b;
         }
 
-        private void SetBonusObject(BonusObject b)
+        public void SetBonusObject(BonusObject b)
         {
             _object = b;
         }
 
+        public void RestartTimers()
+        {
+            InitializeTimers();
+        }
+
         private void InitializeTimers()
         {
-            InitializeTimer(out lifeTimer, lifetime, LifeTimerService);
+            if(lifetime != -1)
+                InitializeTimer(out lifeTimer, lifetime, LifeTimerService);
 
-
-            InitializeTimer(out behaviourTimer, DEFAULT_BEHAVIOURTIMESTEP, BehaviourTimerService);
+            if(behaviourtime != -1)
+                InitializeTimer(out behaviourTimer, DEFAULT_BEHAVIOURTIMESTEP, BehaviourTimerService);
         }
 
         private void LifeTimerService(object sender, ElapsedEventArgs args)
