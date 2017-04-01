@@ -15,15 +15,30 @@ public class ShootControl : MonoBehaviour {
     void Start () {
         rb = FindObjectOfType<PlayerMove>();
         
+        if(rb.znak >  0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 	}
 	
 	// UpdateTime is called once per frame
 	void Update () {
         StartCoroutine("WaitAndDestroy");
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed * transform.localScale.x, GetComponent<Rigidbody2D>().velocity.y);
+
     }
 
-    
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Enemy")
