@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShootControl : MonoBehaviour {
 
+    public int damage;
     public float destroyDelay;
     public float speed;
     public PlayerMove rb;
@@ -26,8 +27,10 @@ public class ShootControl : MonoBehaviour {
     {
         if(other.tag == "Enemy")
         {
-            Instantiate(deathParticle, other.transform.position, other.transform.rotation);
-            Destroy(other.gameObject);
+            //Instantiate(deathParticle, other.transform.position, other.transform.rotation);
+            //Destroy(other.gameObject);
+
+            other.GetComponent<EnemyHealtControl>().giveDMG(damage);
         }
         Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
         Destroy(gameObject);

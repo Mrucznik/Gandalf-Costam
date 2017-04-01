@@ -5,18 +5,13 @@ using System.Timers;
 public class PlayerMove : MonoBehaviour
 {
     public int obrot = 0, znak = 1;
-  
+    
     // Use this for initialization
     void Start()
     {
-        
-    }
-
-    void FixedUpdate()
-    {
 
     }
-
+  
     public float speed = 1.0F;
     void Update()
     {
