@@ -15,7 +15,7 @@ public class BonusManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire2"))
         {
             CreateGift(Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
         }

@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour {
     }
 
     //Shake
-    /*void Update()
+    void Update()
     {
         if(shakeTimer >= 0)
         {
@@ -42,7 +42,7 @@ public class CameraFollow : MonoBehaviour {
 
             shakeTimer -= Time.deltaTime;
         }
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire2"))
         {
             CameraShake(0.1f, 1);
         }
@@ -54,5 +54,5 @@ public class CameraFollow : MonoBehaviour {
     {
         shakeAmount = shakePwr;
         shakeTimer = shakeDur;
-    }*/
+    }
 }
