@@ -6,9 +6,10 @@ public class PlayerMove : MonoBehaviour {
 
     Rigidbody2D rb;
     public float force = 100f;
+    private bool paused = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rb = GetComponent<Rigidbody2D>();
 	}
 
@@ -26,7 +27,8 @@ public class PlayerMove : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update ()
+    {
+
+    }
 }
