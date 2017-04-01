@@ -35,7 +35,6 @@ public class DeaRespManager : MonoBehaviour {
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
         player.transform.position = currentCheckpoint.transform.position;
-        Instantiate(respawnParticle, player.transform.position, player.transform.rotation);
-        
+        Instantiate(respawnParticle, player.transform.position, player.transform.rotation);        
     }
 }

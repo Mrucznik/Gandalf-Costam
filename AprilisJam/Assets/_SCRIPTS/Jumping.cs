@@ -21,16 +21,26 @@ public class Jumping : MonoBehaviour
 
     }
 
+    private bool isGrounded = false;
+
+
     void FixedUpdate()
     {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.down * 0.05f, Vector2.down, .01f);
+        isGrounded = (hit.collider != null && hit.collider.gameObject.layer == 8);
+        if (isGrounded)
+        {
+            Debug.Log(hit.collider.name + " " + jump2);
+            jump2 = 0;
+        }
+        Debug.Log(isGrounded);
     }
 
 
     void Update()
     {
 
-        if (Input.GetKeyDown("space") && (( grounded || jump2 <= 1)))
+        if (Input.GetKeyDown("space") && (( isGrounded || jump2 < 1 )))
         {
 
             anim.SetBool("jump",true);
@@ -42,7 +52,6 @@ public class Jumping : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        jump2 = 0;
         anim.SetBool("jump", false);
 
     }

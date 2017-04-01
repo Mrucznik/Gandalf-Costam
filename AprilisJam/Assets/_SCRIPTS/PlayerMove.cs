@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Security;
 using System.Timers;
@@ -13,8 +14,6 @@ public class PlayerMove : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    }
-
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "Gift")
@@ -22,6 +21,8 @@ public class PlayerMove : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
+
+
 
     public float speed = 2.0f;
     void Update()
@@ -41,7 +42,9 @@ public class PlayerMove : MonoBehaviour
         translationH *= Time.deltaTime;
         transform.Translate(translationH, 0, 0);
         if (translationH < 0)
+        {
             transform.localScale = new Vector3(-1, 1, 1);
+        }
         else if (translationH > 0)
             transform.localScale = new Vector3(1, 1, 1);
 

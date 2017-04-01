@@ -14,17 +14,13 @@ public class ShootControl : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = FindObjectOfType<PlayerMove>();
+        
 	}
 	
 	// UpdateTime is called once per frame
 	void Update () {
         StartCoroutine("WaitAndDestroy");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
-        if(lifeTime <=0)
-        {
-            die();
-        }
-        lifeTime -= Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(speed * transform.localScale.x, GetComponent<Rigidbody2D>().velocity.y);
     }
 
     
@@ -32,14 +28,15 @@ public class ShootControl : MonoBehaviour {
     {
         if(other.tag == "Enemy")
         {
-            //Instantiate(deathParticle, other.transform.position, other.transform.rotation);
-            //Destroy(other.gameObject);
-
             other.GetComponent<EnemyHealtControl>().giveDMG(damage);
         }
-        Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
-        Destroy(gameObject);
+        if (other.tag != "Player")
+        {
+            Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
+            Destroy(gameObject);
+        }
     }
+
     public IEnumerator WaitAndDestroy()
     {
         yield return new WaitForSeconds(destroyDelay);
