@@ -17,26 +17,17 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    public float speed = 1.0F;
+    public float speed = 2.0f;
     void Update()
     {
-        float translationH = Input.GetAxis("Horizontal") * 2;
+        float translationH = Input.GetAxis("Horizontal") * speed;
         translationH *= Time.deltaTime;
-        if (translationH < 0 && obrot < 1)
-        {
-            obrot = 1;
-            transform.Rotate(0, 180, 0);
-            znak = -1;
 
-        }
-        else if(translationH > 0 && obrot >= 1)
-        {
-            obrot = 0;
-            transform.Rotate(0, 180, 0);
-            znak = 1;
-            
-        }
-        transform.Translate(znak*translationH, 0, 0);
+        transform.Translate(translationH, 0, 0);
+        if (translationH < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
+            transform.localScale = new Vector3(1, 1, 1);
 
     }
    

@@ -3590,7 +3590,7 @@
             <summary>Creates an instance of T using m_valueFactory in case its not null or use reflection to create a new T()</summary>
             <returns>An instance of Boxed.</returns>
         </member>
-        <member name="P:System.Lazy`1.ValueForDebugDisplay">
+        <member name="P:System.Lazy`1.ValueForDebugCreate">
             <summary>Gets the value of the Lazy&lt;T&gt; for debugging display purposes.</summary>
         </member>
         <member name="P:System.Lazy`1.Mode">
@@ -3920,7 +3920,7 @@
             The <see cref="T:System.Threading.ThreadLocal`1"/> instance has been disposed.
             </exception>
         </member>
-        <member name="P:System.Threading.ThreadLocal`1.ValueForDebugDisplay">
+        <member name="P:System.Threading.ThreadLocal`1.ValueForDebugCreate">
             <summary>Gets the value of the ThreadLocal&lt;T&gt; for debugging display purposes. It takes care of getting
             the value for the current thread in the ThreadLocal mode.</summary>
         </member>

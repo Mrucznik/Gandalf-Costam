@@ -3,7 +3,6 @@ using System.Collections;
 using System.Timers;
 using Assets._BACKEND.Bonus;
 using Assets._BACKEND.Bonus.BonusBehaviours;
-using Assets._BACKEND.Bonus.BonusObjects;
 
 public class RotateCamera : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class RotateCamera : MonoBehaviour
 
     void Start()
     {
-        bonus = new Bonus(new BonusRotateCameraBehaviour(), new BonusConsoleLogObject());
+        bonus = new Bonus(new BonusRotateCameraBehaviour());
     }
 
     void FixedUpdate()
