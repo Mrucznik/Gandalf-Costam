@@ -243,7 +243,7 @@
             <exception cref="T:System.ArgumentNullException"><paramref name="key"/> is a null reference
             (Nothing in Visual Basic).</exception>
         </member>
-        <member name="M:System.Collections.Concurrent.ConcurrentDictionary`2.TryUpdate(`0,`1,`1)">
+        <member name="M:System.Collections.Concurrent.ConcurrentDictionary`2.TryUpdateTime(`0,`1,`1)">
             <summary>
             Compares the existing value for the specified key with a specified value, and if they’re equal,
             updates the key with a third value.
@@ -364,7 +364,7 @@
             <returns>The value for the key.  This will be either the existing value for the key if the 
             key is already in the dictionary, or the new value if the key was not in the dictionary.</returns>
         </member>
-        <member name="M:System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(`0,System.Func{`0,`1},System.Func{`0,`1,`1})">
+        <member name="M:System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdateTime(`0,System.Func{`0,`1},System.Func{`0,`1,`1})">
             <summary>
             Adds a key/value pair to the <see cref="T:System.Collections.Concurrent.ConcurrentDictionary`2"/> if the key does not already 
             exist, or updates a key/value pair in the <see cref="T:System.Collections.Concurrent.ConcurrentDictionary`2"/> if the key 
@@ -385,7 +385,7 @@
             <returns>The new value for the key.  This will be either be the result of addValueFactory (if the key was 
             absent) or the result of updateValueFactory (if the key was present).</returns>
         </member>
-        <member name="M:System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdate(`0,`1,System.Func{`0,`1,`1})">
+        <member name="M:System.Collections.Concurrent.ConcurrentDictionary`2.AddOrUpdateTime(`0,`1,System.Func{`0,`1,`1})">
             <summary>
             Adds a key/value pair to the <see cref="T:System.Collections.Concurrent.ConcurrentDictionary`2"/> if the key does not already 
             exist, or updates a key/value pair in the <see cref="T:System.Collections.Concurrent.ConcurrentDictionary`2"/> if the key 
@@ -1067,7 +1067,7 @@
         <member name="M:System.Collections.Concurrent.ConcurrentQueue`1.Segment.Grow(System.Collections.Concurrent.ConcurrentQueue{`0}.Segment@)">
             <summary>
             Create a new segment and append to the current one
-            Update the m_tail pointer
+            UpdateTime the m_tail pointer
             This method is called when there is no contention
             </summary>
         </member>
@@ -3414,7 +3414,7 @@
             Private helper method to wake up waiters when a cancellationToken gets canceled.
             </summary>
         </member>
-        <member name="M:System.Threading.ManualResetEventSlim.UpdateStateAtomically(System.Int32,System.Int32)">
+        <member name="M:System.Threading.ManualResetEventSlim.UpdateTimeStateAtomically(System.Int32,System.Int32)">
             <summary>
             Private helper method for updating parts of a bit-string state value.
             Mainly called from the IsSet and Waiters properties setters
@@ -3449,7 +3449,7 @@
             <param name="state"></param>
             <param name="mask"></param>
         </member>
-        <member name="M:System.Threading.ManualResetEventSlim.UpdateTimeOut(System.Int64,System.Int32)">
+        <member name="M:System.Threading.ManualResetEventSlim.UpdateTimeTimeOut(System.Int64,System.Int32)">
             <summary>
             Helper function to measure and update the wait time
             </summary>
@@ -4127,7 +4127,7 @@
             thread-safe and may not be used concurrently with other members of this instance.
             </remarks>
         </member>
-        <member name="M:System.Threading.SemaphoreSlim.UpdateTimeOut(System.Int64,System.Int32)">
+        <member name="M:System.Threading.SemaphoreSlim.UpdateTimeTimeOut(System.Int64,System.Int32)">
             <summary>
             Helper function to measure and update the wait time
             </summary>
@@ -6849,7 +6849,7 @@
             Throws an aggregate exception if the task contains exceptions. 
             </summary>
         </member>
-        <member name="M:System.Threading.Tasks.Task.UpdateExceptionObservedStatus">
+        <member name="M:System.Threading.Tasks.Task.UpdateTimeExceptionObservedStatus">
             <summary>
             Checks whether this is an attached task, and whether we are being called by the parent task.
             And sets the TASK_STATE_EXCEPTIONOBSERVEDBYPARENT status flag based on that.
@@ -13485,7 +13485,7 @@
             <param name="externalToken"></param>
             <returns></returns>
         </member>
-        <member name="M:System.Collections.Concurrent.BlockingCollection`1.UpdateTimeOut(System.Int64,System.Int32)">
+        <member name="M:System.Collections.Concurrent.BlockingCollection`1.UpdateTimeTimeOut(System.Int64,System.Int32)">
             <summary>
             Helper function to measure and update the wait time
             </summary>

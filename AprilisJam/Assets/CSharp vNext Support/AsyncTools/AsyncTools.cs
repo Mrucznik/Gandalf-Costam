@@ -40,7 +40,7 @@ public static class AsyncTools
     public static Awaiter ToThreadPool() => threadPoolAwaiter;
 
     /// <summary>
-    /// Switches execution to the Update context of the main thread.
+    /// Switches execution to the UpdateTime context of the main thread.
     /// </summary>
     [Obsolete("Use ToUpdate(), ToLateUpdate() or ToFixedUpdate() instead.")]
     public static Awaiter ToMainThread() => ToUpdate();
@@ -54,7 +54,7 @@ public static class AsyncTools
     }
 
     /// <summary>
-	/// Switches execution to the Update context of the main thread.
+	/// Switches execution to the UpdateTime context of the main thread.
 	/// </summary>
 	public static Awaiter ToUpdate()
     {
@@ -114,7 +114,7 @@ public static class AsyncTools
     /// <summary>
     /// Waits for specified number of seconds or until next frame.
     /// 
-    /// If the argument is zero or negative, and if called from the main thread from Update or LateUpdate context,
+    /// If the argument is zero or negative, and if called from the main thread from UpdateTime or LateUpdate context,
     /// waits until next rendering frame.
     /// 
     /// If the argument is zero or negative, and if called from the main thread from FixedUpdate context,
@@ -135,7 +135,7 @@ public static class AsyncTools
     /// <summary>
     /// Waits for specified number of seconds or until next frame.
     /// 
-    /// If the argument is zero or negative, and if called from the main thread from Update or LateUpdate context,
+    /// If the argument is zero or negative, and if called from the main thread from UpdateTime or LateUpdate context,
     /// waits until next rendering frame.
     /// 
     /// If the argument is zero or negative, and if called from the main thread from FixedUpdate context,
