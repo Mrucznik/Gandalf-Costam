@@ -4,12 +4,15 @@ using System.Timers;
 
 public class PlayerMove : MonoBehaviour
 {
-    public int obrot = 0, znak = 1;
-  
+
+    int jump2 = 0, floor = 0;
+    public Rigidbody2D rb;
+
     // Use this for initialization
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+
     }
 
     void FixedUpdate()
@@ -17,27 +20,18 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    public float speed = 1.0F;
+    public float speed = 10.0F;
     void Update()
     {
-        float translationH = Input.GetAxis("Horizontal") * 2;
-        translationH *= Time.deltaTime;
-        if (translationH < 0 && obrot < 1)
-        {
-            obrot = 1;
-            transform.Rotate(0, 180, 0);
-            znak = -1;
 
-        }
-        else if(translationH > 0 && obrot >= 1)
-        {
-            obrot = 0;
-            transform.Rotate(0, 180, 0);
-            znak = 1;
-            
-        }
-        transform.Translate(znak*translationH, 0, 0);
+        float translationH = Input.GetAxis("Horizontal") * speed;
+
+        translationH *= Time.deltaTime;
+        transform.Translate(translationH, 0, 0);
+
+
+
 
     }
-   
+
 }
