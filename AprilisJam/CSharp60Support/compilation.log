@@ -1,56 +1,64 @@
 ********************************************************************************
-*                     Saturday, April 01, 2017 5:32:51 AM                      *
+*                     Saturday, April 01, 2017 3:24:55 PM                      *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 2.0.3.30
 Platform: Windows
 Target assembly: Assembly-CSharp.dll
-Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
+Project directory: C:\Users\Sebastian\Desktop\Projekt\SzakatonHackaton\AprilisJam
 Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity
 Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
 Compiler: Microsoft C# 6.0
 
 - Compilation -----------------------------------------------
 
-Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-bc964d147927045478503e02c45d81a1 
-Exit code: 1
-Elapsed time: 0.51 sec
+Process: C:\Users\Sebastian\Desktop\Projekt\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-a9069a300f4a25b419da2454465ef867 
+Exit code: 0
+Elapsed time: 4.45 sec
 
 - Compiler output (0 lines):
 
-- Compiler errors (7 lines):
-0: Assets\_SCRIPTS\ShootControl.cs(13,20): error CS1061: 'PlayerMove' does not contain a definition for 'znak' and no extension method 'znak' accepting a first argument of type 'PlayerMove' could be found (are you missing a using directive or an assembly reference?)
-1: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-2: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
-3: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-4: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-5: Assets\_SCRIPTS\PlayerMove.cs(8,20): warning CS0414: The field 'PlayerMove.floor' is assigned but its value is never used
-6: Assets\_SCRIPTS\PlayerMove.cs(8,9): warning CS0414: The field 'PlayerMove.jump2' is assigned but its value is never used
+- Compiler errors (4 lines):
+0: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
+1: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+2: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+3: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Sebastian\Desktop\Projekt\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.18 sec
+
+- pdb2mdb.exe output (0 lines):
 ********************************************************************************
-*                     Saturday, April 01, 2017 5:32:59 AM                      *
+*                     Saturday, April 01, 2017 3:25:01 PM                      *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 2.0.3.30
 Platform: Windows
-Target assembly: Assembly-CSharp.dll
-Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
-Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: C:\Users\Sebastian\Desktop\Projekt\SzakatonHackaton\AprilisJam
+Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0
 Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
 Compiler: Microsoft C# 6.0
 
 - Compilation -----------------------------------------------
 
-Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-8a99ec1dd88f92f4696af150a11ed5d4 
-Exit code: 1
-Elapsed time: 0.38 sec
+Process: C:\Users\Sebastian\Desktop\Projekt\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.dll" @Temp/UnityTempFile-8814778c182efc04f9d8516b94b42083 
+Exit code: 0
+Elapsed time: 4.17 sec
 
 - Compiler output (0 lines):
 
-- Compiler errors (7 lines):
-0: Assets\_SCRIPTS\ShootControl.cs(13,20): error CS1061: 'PlayerMove' does not contain a definition for 'znak' and no extension method 'znak' accepting a first argument of type 'PlayerMove' could be found (are you missing a using directive or an assembly reference?)
-1: Assets\_SCRIPTS\StartMenu.cs(10,10): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-2: Assets\_SCRIPTS\PauseMenu.cs(43,31): warning CS0618: 'Application.loadedLevel' is obsolete: 'Use SceneManager to determine what scenes have been loaded'
-3: Assets\_SCRIPTS\PauseMenu.cs(43,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-4: Assets\_SCRIPTS\PauseMenu.cs(48,9): warning CS0618: 'Application.LoadLevel(int)' is obsolete: 'Use SceneManager.LoadScene'
-5: Assets\_SCRIPTS\PlayerMove.cs(8,9): warning CS0414: The field 'PlayerMove.jump2' is assigned but its value is never used
-6: Assets\_SCRIPTS\PlayerMove.cs(8,20): warning CS0414: The field 'PlayerMove.floor' is assigned but its value is never used
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: C:\Users\Sebastian\Desktop\Projekt\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.17 sec
+
+- pdb2mdb.exe output (0 lines):
