@@ -25,4 +25,6 @@ public class BonusManager : MonoBehaviour
     {
         Instantiate(prefabGift, vector, quaternion);
     }
+
+    
 }

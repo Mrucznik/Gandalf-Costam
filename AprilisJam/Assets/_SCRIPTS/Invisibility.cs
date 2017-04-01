@@ -13,7 +13,7 @@ public class Invisibility : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetAxis("Jump") > 0)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             visible = !visible;
         }
