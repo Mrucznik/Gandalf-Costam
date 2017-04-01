@@ -12,13 +12,13 @@ public class BonusControl : MonoBehaviour
 	void Start () {
         Debug.Log("Sztart");
 
-        bonus = new Bonus(new BonusConsoleLogBehaviour(), new BonusConsoleLogObject(), 5000, 10000);
+        bonus = new Bonus(new BonusRotateCameraBehaviour(), new BonusGiftObject(), 5000, 10000);
         bonus.PickUp();
         bonus.Activate();
 	}
 	
 	// UpdateTime is called once per frame
 	void Update () {
-	    bonus.Update();	
+	    bonus.Update();
 	}
 }

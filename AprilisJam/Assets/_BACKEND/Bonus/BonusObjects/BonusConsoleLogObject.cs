@@ -2,16 +2,21 @@
 
 namespace Assets._BACKEND.Bonus.BonusObjects
 {
-    class BonusConsoleLogObject : BonusObject
+    class BonusConsoleLogObject : IBonusObject
     {
-        public override void Display()
+        public void Display()
         {
             Debug.Log("Wyswietlono obiekt fizyczny bonusu");
         }
 
-        public override void Hide()
+        public void Hide()
         {
             Debug.Log("Usunięto obiekt fizyczny bonusu");
+        }
+
+        public void Update()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

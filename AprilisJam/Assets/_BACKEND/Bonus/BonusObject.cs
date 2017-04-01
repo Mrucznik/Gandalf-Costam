@@ -1,18 +1,10 @@
+using UnityEngine;
 namespace Assets._BACKEND.Bonus
 {
-    public abstract class BonusObject
+    public interface IBonusObject
     {
-        protected BonusObject()
-        {
-            
-        }
-
-        public abstract void Display();
-        public abstract void Hide();
-
-        public void Update()
-        {
-            
-        }
+        void Display();
+        void Hide();
+        void Update();
     }
 }

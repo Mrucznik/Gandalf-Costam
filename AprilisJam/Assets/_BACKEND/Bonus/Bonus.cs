@@ -1,4 +1,5 @@
 ﻿using System.Timers;
+using UnityEngine;
 
 namespace Assets._BACKEND.Bonus
 {
@@ -16,9 +17,9 @@ namespace Assets._BACKEND.Bonus
         private Timer behaviourTimer;
 
         private BonusBehaviour _behaviour;
-        private BonusObject _object;
+        private IBonusObject _object;
 
-        public Bonus(BonusBehaviour behaviour, BonusObject @object, int lifetime = DEFAULT_LIFETIME, int behaviourtime = DEFAULT_BEHAVIOURTIME)
+        public Bonus(BonusBehaviour behaviour, IBonusObject @object, int lifetime = DEFAULT_LIFETIME, int behaviourtime = DEFAULT_BEHAVIOURTIME)
         {
             SetBonusBehaviour(behaviour);
             SetBonusObject(@object);
@@ -89,7 +90,7 @@ namespace Assets._BACKEND.Bonus
             _behaviour = b;
         }
 
-        public void SetBonusObject(BonusObject b)
+        public void SetBonusObject(IBonusObject b)
         {
             _object = b;
         }
