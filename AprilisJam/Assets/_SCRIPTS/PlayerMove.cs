@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
 {
     private Animator anim;
     private int moveiterator = 0;
+    public int znak = 1;
     // Use this for initialization
     void Start()
     {
@@ -43,10 +44,14 @@ public class PlayerMove : MonoBehaviour
         transform.Translate(translationH, 0, 0);
         if (translationH < 0)
         {
+            znak = 1;
             transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (translationH > 0)
+        {
+            znak = -1;
             transform.localScale = new Vector3(1, 1, 1);
+        }
 
     }
    
