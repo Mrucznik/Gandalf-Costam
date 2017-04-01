@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Backend
+namespace Assets._BACKEND.Bonus.BonusBehaviours
 {
-    public class Player
+    class BonusRotateCameraBehaviour
     {
     }
 }

@@ -1,7 +1,6 @@
-using System.Timers;
 using UnityEngine;
 
-namespace Assets.Backend.Bonus
+namespace Assets._BACKEND.Bonus
 {
     public class BonusState
     {

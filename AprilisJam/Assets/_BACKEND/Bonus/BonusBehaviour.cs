@@ -1,4 +1,4 @@
-﻿namespace Assets.Backend.Bonus
+﻿namespace Assets._BACKEND.Bonus
 {
     public abstract class BonusBehaviour
     {

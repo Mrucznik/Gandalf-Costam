@@ -1,8 +1,6 @@
-﻿using System;
-using System.Runtime.Remoting.Lifetime;
-using System.Timers;
+﻿using System.Timers;
 
-namespace Assets.Backend.Bonus
+namespace Assets._BACKEND.Bonus
 {
     //Klasa odpowiedzialna za bonusy dla gracza 
     public class Bonus
