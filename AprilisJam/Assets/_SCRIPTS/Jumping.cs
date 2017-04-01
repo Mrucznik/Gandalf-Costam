@@ -11,7 +11,7 @@ public class Jumping : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+       
     }
 
     void Update()
@@ -29,7 +29,6 @@ public class Jumping : MonoBehaviour
     {
         floor = 1;
         jump2 = 0;
-        Debug.Log(floor);
 
     }
 }
