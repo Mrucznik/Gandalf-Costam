@@ -1,0 +1,123 @@
+********************************************************************************
+*                       sobota, 1 kwietnia 2017 02:12:41                       *
+********************************************************************************
+********************************************************************************
+*                     Saturday, April 01, 2017 2:14:46 AM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
+Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-2876b98eacf765844a4c5ec39d705c5f 
+Exit code: 0
+Elapsed time: 0.90 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.26 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 2:14:48 AM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
+Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0
+Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.dll" @Temp/UnityTempFile-87d831e27e029084c889d232d8c562c8 
+Exit code: 0
+Elapsed time: 0.35 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.06 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 2:15:01 AM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp.dll
+Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
+Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity
+Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-81b5fd504cc2f6a4ab5339bbfcfecf7e 
+Exit code: 0
+Elapsed time: 0.44 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp.dll
+Exit code: 0
+Elapsed time: 0.06 sec
+
+- pdb2mdb.exe output (0 lines):
+********************************************************************************
+*                     Saturday, April 01, 2017 2:15:02 AM                      *
+********************************************************************************
+CSharpCompilerWrapper.exe version: 2.0.3.30
+Platform: Windows
+Target assembly: Assembly-CSharp-Editor.dll
+Project directory: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam
+Target profile directory: C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0
+Unity 'Data' or 'Frameworks' directory: C:/Program Files/Unity/Editor/Data
+Compiler: Microsoft C# 6.0
+
+- Compilation -----------------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\csc.exe
+Arguments: -nostdlib+ -noconfig -nologo -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\mscorlib.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Core.dll" -r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\System.Xml.dll" @Temp/UnityTempFile-c3265c1208ae408429d76bc1b0a3897b 
+Exit code: 0
+Elapsed time: 0.34 sec
+
+- Compiler output (0 lines):
+
+- Compiler errors (0 lines):
+
+- PDB to MDB conversion --------------------------------------
+
+Process: J:\1_Informatyka\Programowanie\Projekty\Moje\Unity\SzakatonHackaton\AprilisJam\CSharp60Support\Roslyn\pdb2mdb.exe
+Arguments: Temp\Assembly-CSharp-Editor.dll
+Exit code: 0
+Elapsed time: 0.06 sec
+
+- pdb2mdb.exe output (0 lines):
