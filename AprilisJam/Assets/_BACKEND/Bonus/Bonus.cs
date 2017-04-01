@@ -13,9 +13,9 @@ namespace Assets._BACKEND.Bonus
         private int behaviourtime;
         private Timer behaviourTimer;
 
-        private BonusBehaviour _behaviour;
+        public BonusBehaviour Behaviour;
 
-        public Bonus(BonusBehaviour behaviour, int lifetime = DEFAULT_LIFETIME, int behaviourtime = DEFAULT_BEHAVIOURTIME)
+        public Bonus(BonusBehaviour behaviour, int behaviourtime = DEFAULT_BEHAVIOURTIME)
         {
             SetBonusBehaviour(behaviour);
             
@@ -26,7 +26,7 @@ namespace Assets._BACKEND.Bonus
 
         public void Update()
         {
-            _behaviour.Update();
+            Behaviour.Update();
         }
 
         public void Activate()
@@ -36,24 +36,24 @@ namespace Assets._BACKEND.Bonus
 
         private void ActivateBehaviour()
         {
-            _behaviour.ActivateBehaviour(behaviourtime);
+            Behaviour.ActivateBehaviour(behaviourtime);
             behaviourTimer?.Start();
         }
 
         private void DeactivateBehaviour()
         {
-            _behaviour.DeactivateBehaviour();
+            Behaviour.DeactivateBehaviour();
             behaviourTimer?.Stop();
         }
 
-        public bool IsBehaviourActivated()
+        public int GetBehaviourState()
         {
-            return _behaviour.IsBehaviourActivated();
+            return Behaviour.GetBehaviourState();
         }
 
         public void SetBonusBehaviour(BonusBehaviour b)
         {
-            _behaviour = b;
+            Behaviour = b;
         }
 
         public void RestartTimers()
@@ -76,7 +76,7 @@ namespace Assets._BACKEND.Bonus
             }
             else
             {
-                _behaviour.UpdateBehaviourTime(behaviourtime);
+                Behaviour.UpdateBehaviourTime(behaviourtime);
             }
         }
 

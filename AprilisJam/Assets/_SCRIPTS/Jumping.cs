@@ -30,10 +30,8 @@ public class Jumping : MonoBehaviour
         isGrounded = (hit.collider != null && hit.collider.gameObject.layer == 8);
         if (isGrounded)
         {
-            Debug.Log(hit.collider.name + " " + jump2);
             jump2 = 0;
         }
-        Debug.Log(isGrounded);
     }
 
 

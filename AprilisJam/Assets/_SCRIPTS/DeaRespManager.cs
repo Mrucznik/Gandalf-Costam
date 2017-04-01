@@ -30,7 +30,6 @@ public class DeaRespManager : MonoBehaviour {
         Instantiate(deathParticle, player.transform.position, player.transform.rotation);
         player.enabled = false;
         player.GetComponent<Renderer>().enabled = false;
-        Debug.Log("Player resp");
         yield return new WaitForSeconds(respawnDelay);
         player.enabled = true;
         player.GetComponent<Renderer>().enabled = true;
