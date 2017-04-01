@@ -1,31 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using System.Timers;
 
-public class PlayerMove : MonoBehaviour {
-
-    Rigidbody2D rb;
-    public float force = 100f;
-
-	// Use this for initialization
-	void Start () {
-        rb = GetComponent<Rigidbody2D>();
-	}
-
-    void OnCollisionEnter2D(Collision2D col)
+public class PlayerMove : MonoBehaviour
+{
+    public int obrot = 0, znak = 1;
+  
+    // Use this for initialization
+    void Start()
     {
-        if(col.gameObject.layer == 10)
-        {
-            Destroy(this.gameObject);
-        }
+        
     }
+
     void FixedUpdate()
     {
-        rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * force, 0));
+
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+    public float speed = 1.0F;
+    void Update()
+    {
+        float translationH = Input.GetAxis("Horizontal") * 2;
+        translationH *= Time.deltaTime;
+        if (translationH < 0 && obrot < 1)
+        {
+            obrot = 1;
+            transform.Rotate(0, 180, 0);
+            znak = -1;
+
+        }
+        else if(translationH > 0 && obrot >= 1)
+        {
+            obrot = 0;
+            transform.Rotate(0, 180, 0);
+            znak = 1;
+            
+        }
+        transform.Translate(znak*translationH, 0, 0);
+
+    }
+   
 }
