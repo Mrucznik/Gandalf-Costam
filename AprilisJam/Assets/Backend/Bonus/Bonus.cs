@@ -1,46 +1,120 @@
-﻿using System.Timers;
+﻿using System;
+using System.Runtime.Remoting.Lifetime;
+using System.Timers;
 
 namespace Assets.Backend.Bonus
 {
-    //Klasa odpowiedzialna za bonusy dla gracza
+    //Klasa odpowiedzialna za bonusy dla gracza 
     public class Bonus
     {
+        private const int DEFAULT_LIFETIME = 10000;
+        private const int DEFAULT_BEHAVIOURTIME = 10000;
+        private const int DEFAULT_BEHAVIOURTIMESTEP = 1000;
+
+        private int lifetime;
+        private int behaviourtime;
+
         private Timer lifeTimer;
-        private BonusBehaviour behaviour;
-        private BonusState bonusState;
-        private BonusObject bonusObject;
+        private Timer behaviourTimer;
 
-        protected Bonus(BonusBehaviour behaviour, int lifetime, int activetime)
+        private BonusBehaviour _behaviour;
+        private BonusObject _object;
+
+        public Bonus(BonusBehaviour behaviour, BonusObject @object, int lifetime = DEFAULT_LIFETIME, int behaviourtime = DEFAULT_BEHAVIOURTIME)
         {
-            this.behaviour = behaviour;
-            lifeTimer = new Timer(lifetime);
-            lifeTimer.Elapsed += (sender, args) =>
-            {
-                Destroy();
-            };
+            SetBonusBehaviour(behaviour);
+            SetBonusObject(@object);
+
+            this.lifetime = lifetime;
+            this.behaviourtime = behaviourtime;
+
+            InitializeTimers();
         }
 
-        public void Create()
+        public Bonus(BonusBehaviour behaviour, int lifetime = DEFAULT_LIFETIME, int behaviourtime = DEFAULT_BEHAVIOURTIME)
         {
-            
-        }
+            SetBonusBehaviour(behaviour);
 
-        public void PickUp()
-        {
-        }
+            this.lifetime = lifetime;
+            this.behaviourtime = behaviourtime;
 
-        public void Destroy()
-        {
+            InitializeTimers();
         }
 
         public void Activate()
         {
-            behaviour.ActivateBehaviour();
+            ActivateBehaviour();
         }
 
-        public void Deactivate()
+        public void PickUp()
         {
-            behaviour.DeactivateBehaviour();
+            DisplayObject();
+        }
+
+        private void DisplayObject()
+        {
+            _object.Display();
+            lifeTimer.Start();
+        }
+
+        private void DestroyObject()
+        {
+            _object.Hide();
+            lifeTimer.Stop();
+        }
+
+        private void ActivateBehaviour()
+        {
+            _behaviour.ActivateBehaviour(behaviourtime);
+            behaviourTimer.Start();
+        }
+
+        private void DeactivateBehaviour()
+        {
+            _behaviour.DeactivateBehaviour();
+            behaviourTimer.Stop();
+        }
+
+        private void SetBonusBehaviour(BonusBehaviour b)
+        {
+            _behaviour = b;
+        }
+
+        private void SetBonusObject(BonusObject b)
+        {
+            _object = b;
+        }
+
+        private void InitializeTimers()
+        {
+            InitializeTimer(out lifeTimer, lifetime, LifeTimerService);
+
+
+            InitializeTimer(out behaviourTimer, DEFAULT_BEHAVIOURTIMESTEP, BehaviourTimerService);
+        }
+
+        private void LifeTimerService(object sender, ElapsedEventArgs args)
+        {
+            DestroyObject();
+        }
+
+        private void BehaviourTimerService(object sender, ElapsedEventArgs args)
+        {
+            behaviourtime -= DEFAULT_BEHAVIOURTIMESTEP;
+            if (behaviourtime <= 0)
+            {
+                DeactivateBehaviour();
+            }
+            else
+            {
+                _behaviour.UpdateBehaviourTime(behaviourtime);
+            }
+        }
+
+        private void InitializeTimer(out Timer timer, int time, ElapsedEventHandler f)
+        {
+            timer = new Timer(time);
+            timer.Elapsed += f;
         }
     }
 }
