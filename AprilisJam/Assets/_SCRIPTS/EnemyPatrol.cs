@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = System.Random;
 
 public class EnemyPatrol : MonoBehaviour {
 
@@ -19,17 +18,17 @@ public class EnemyPatrol : MonoBehaviour {
     Random rand;
     // Use this for initialization
     void Start () {
-        rand = new Random();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
         hittingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, whatIsWall);
         atEdge = Physics2D.OverlapCircle(edgeCheck.position, wallCheckRadius, whatIsWall);
-
+        
         if (hittingWall || !atEdge)
         {
-            if(rand.Next(1000) < 5)
+            if(Random.Range(0, 10000) < 5)
             moveRight =! moveRight;
         }
         if (moveRight)

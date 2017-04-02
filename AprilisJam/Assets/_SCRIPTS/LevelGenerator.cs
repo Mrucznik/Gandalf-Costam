@@ -13,6 +13,9 @@ public class LevelGenerator : MonoBehaviour {
     public List<int> prefabsQuantity;
     public int NumberOfBlocks = 128;
     public int NumberOfRows = 128;
+
+
+
     List<GameObject> Enemies;
     List<GameObject> Level;
     Random rand;
@@ -24,7 +27,7 @@ public class LevelGenerator : MonoBehaviour {
         Enemies = new List<GameObject>();
         Level = new List<GameObject>();
         Vector3 startingPos = Vector3.zero;
-        int blocks = NumberOfBlocks - 8;
+        int blocks = NumberOfBlocks - 10;
         
         
         // First Platform

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealtControl : MonoBehaviour {
 
-    public int enemyHealth;
+    public float enemyHealth;
 
     public GameObject deathEffenct;
 
@@ -24,7 +24,7 @@ public class EnemyHealtControl : MonoBehaviour {
         }
 	}
 
-    public void giveDMG(int DMGtoGive)
+    public void giveDMG(float DMGtoGive)
     {
         enemyHealth -= DMGtoGive;
     }

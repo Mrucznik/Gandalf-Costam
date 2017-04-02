@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     public DeaRespManager levelManager;
     public List<Bonus> bonusy = new List<Bonus>();
     private const int maxBonus = 5;
+    int sterowanie = 1;
 
     private Animator anim;
     private int moveiterator = 0;
@@ -123,6 +124,11 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    public void odwrocSter()
+    {
+        sterowanie = -sterowanie;
+    }
+
 
 public float speed = 2.0f;
     void Update()
@@ -137,7 +143,7 @@ public float speed = 2.0f;
         if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)) moveiterator--; ;
         anim.SetInteger("walk", moveiterator);
 
-        float translationH = Input.GetAxis("Horizontal") * speed;
+        float translationH = Input.GetAxis("Horizontal") * speed * sterowanie;
         translationH *= Time.deltaTime;
         transform.Translate(translationH, 0, 0);
         if (translationH < 0)
@@ -150,6 +156,8 @@ public float speed = 2.0f;
             znak = -1;
             transform.localScale = new Vector3(1, 1, 1);
         }
+
+
 
 
         aktywujZachowanie();
