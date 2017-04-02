@@ -53,11 +53,12 @@ public class LevelGenerator : MonoBehaviour {
 
                     if (rand.Next(100) <= 10)
                         platform.AddComponent<FallingPlatform>();
-                    if (rand.Next(100) <= 40)
+                    if (rand.Next(100) <= 40 && prefabsQuantity[i] > 2)
                     {
                         GameObject enemyN;
                         enemyN = Instantiate(enemyPrefab, platform.transform.position + new Vector3(.5f, 0), Quaternion.identity);
                         Enemies.Add(enemyN);
+                        enemyN.GetComponent<EnemyPatrol>().seed = rand.Next();
                         enemyN.transform.parent = world.transform;
                     }
                     else if(rand.Next(100) <= 80)
