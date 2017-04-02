@@ -4,7 +4,8 @@
     {
         ConsoleLog,
         RotateCamera,
-        Invisibility
+        Invisibility,
+        Kill
     }
 
 

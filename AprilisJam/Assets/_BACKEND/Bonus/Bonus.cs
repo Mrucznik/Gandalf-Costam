@@ -77,6 +77,8 @@ namespace Assets._BACKEND.Bonus
             else
             {
                 Behaviour.UpdateBehaviourTime(behaviourtime);
+                if(Behaviour.GetBehaviourState() == 3)
+                    behaviourTimer.Stop();
             }
         }
 

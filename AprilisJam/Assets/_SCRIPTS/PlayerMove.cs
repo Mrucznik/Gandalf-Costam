@@ -10,7 +10,8 @@ using Random = System.Random;
 
 public class PlayerMove : MonoBehaviour
 {
-    private List<Bonus> bonusy = new List<Bonus>();
+    public List<Bonus> bonusy = new List<Bonus>();
+    private const int maxBonus = 5;
 
     private Animator anim;
     private int moveiterator = 0;
@@ -26,6 +27,8 @@ public class PlayerMove : MonoBehaviour
         if (col.gameObject.tag == "Gift")
         {
             var bonus = new Bonus(CreateRandomBonus());
+            if(bonusy.Count == maxBonus)
+                bonus.Activate();
             bonusy.Add(bonus);
             Destroy(col.gameObject);
         }
@@ -39,9 +42,9 @@ public class PlayerMove : MonoBehaviour
         int random = rand.Next(0, 100);
 
         if (random < 10)
-            return new BonusBehaviour(BonusBehavioursEnum.ConsoleLog);
-        if (random < 20)
             return new BonusBehaviour(BonusBehavioursEnum.Invisibility);
+        if (random < 99)
+            return new BonusBehaviour(BonusBehavioursEnum.Kill);
         return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
     }
 
@@ -77,12 +80,20 @@ public class PlayerMove : MonoBehaviour
                 case BonusBehavioursEnum.Invisibility:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
-                        bonus.Behaviour.PassiveMode();
                         this.GetComponent<SpriteRenderer>().enabled = false;
                     }
                     else
                     {
                         this.GetComponent<SpriteRenderer>().enabled = true;
+                    }
+                    break;
+                case BonusBehavioursEnum.Kill:
+                    if (bonus.Behaviour.GetBehaviourState() == 1)
+                    { 
+                        DeaRespManager levelManager;
+                        levelManager = FindObjectOfType<DeaRespManager>();
+                        levelManager.RespawnPlayer();
+                        bonus.Behaviour.DeactivateBehaviour();
                     }
                     break;
             }
