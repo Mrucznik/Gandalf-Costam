@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class EnemyPatrol : MonoBehaviour {
 
@@ -14,9 +15,11 @@ public class EnemyPatrol : MonoBehaviour {
 
     private bool atEdge;
     public Transform edgeCheck;
+
+    Random rand;
     // Use this for initialization
     void Start () {
-		
+        rand = new Random();
 	}
 	
 	// Update is called once per frame
@@ -26,6 +29,7 @@ public class EnemyPatrol : MonoBehaviour {
 
         if (hittingWall || !atEdge)
         {
+            if(rand.Next(100) < 5)
             moveRight =! moveRight;
         }
         if (moveRight)
