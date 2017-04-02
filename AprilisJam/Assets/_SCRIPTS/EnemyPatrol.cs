@@ -29,7 +29,7 @@ public class EnemyPatrol : MonoBehaviour {
 
         if (hittingWall || !atEdge)
         {
-            if(rand.Next(100) < 5)
+            if(rand.Next(1000) < 5)
             moveRight =! moveRight;
         }
         if (moveRight)
