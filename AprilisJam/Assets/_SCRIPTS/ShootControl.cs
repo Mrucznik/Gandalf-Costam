@@ -11,6 +11,8 @@ public class ShootControl : MonoBehaviour {
     public PlayerMove rb;
     public GameObject deathParticle;
     public GameObject brokenBullet;
+    public bool isEnemy = false;
+    public bool isPlayer = false;
     // Use this for initialization
     void Start () {
         rb = FindObjectOfType<PlayerMove>();
@@ -37,20 +39,18 @@ public class ShootControl : MonoBehaviour {
     {
         Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
         Destroy(gameObject);
-    }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<EnemyHealtControl>().giveDMG(damage);
+            other.gameObject.GetComponent<EnemyHealtControl>().giveDMG(damage);
         }
-        if (other.tag != "Player")
+        if (other.gameObject.tag != "Player")
         {
             Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
             Destroy(gameObject);
         }
     }
+
 
     public IEnumerator WaitAndDestroy()
     {
