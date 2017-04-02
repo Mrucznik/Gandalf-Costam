@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class PlayMovie : MonoBehaviour
 {
+    public bool loop;
+    public bool rickrolled;
+
     public MovieTexture movie;
     private AudioSource audio;
 
@@ -18,5 +21,20 @@ public class PlayMovie : MonoBehaviour
         movie.Play();
         audio.Play();
 	    Camera.main.GetComponent<AudioSource>().mute = true;
+	    movie.loop = loop;
+	    audio.loop = loop;
 	}
+
+    void Update()
+    {
+        if (rickrolled && Input.GetKeyDown(KeyCode.X))
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (!movie.isPlaying)
+        {
+           Destroy(this.gameObject);
+        }
+    }
 }

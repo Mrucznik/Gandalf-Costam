@@ -6,6 +6,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject PauseUI;
+    public GameObject rickroll;
 
     private bool paused = false;
 
@@ -53,6 +54,7 @@ public class PauseMenu : MonoBehaviour {
 
     public void Help()
     {
-        SceneManager.LoadScene("Ricky");
+        rickroll.SetActive(true);
+        rickroll.gameObject.SetActive(true);
     }
 }
