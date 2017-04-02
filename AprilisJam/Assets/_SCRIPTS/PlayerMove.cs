@@ -10,6 +10,7 @@ using Random = System.Random;
 
 public class PlayerMove : MonoBehaviour
 {
+    public DeaRespManager levelManager;
     public List<Bonus> bonusy = new List<Bonus>();
     private const int maxBonus = 5;
 
@@ -20,6 +21,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        levelManager = FindObjectOfType<DeaRespManager>();
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -32,8 +34,18 @@ public class PlayerMove : MonoBehaviour
             bonusy.Add(bonus);
             Destroy(col.gameObject);
         }
+        
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log(col.gameObject.tag);
+        if (col.gameObject.tag == "Spikes")
+        {
+            Debug.Log("Hehe");
+            levelManager.RespawnPlayer();
+        }
+    }
 
 
     private BonusBehaviour CreateRandomBonus()
@@ -70,6 +82,7 @@ public class PlayerMove : MonoBehaviour
                 case BonusBehavioursEnum.RotateCamera:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
+
                         Camera.main.transform.Rotate(0, 0, 90 * Time.deltaTime);
                     }
                     else

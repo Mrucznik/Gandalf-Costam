@@ -10,6 +10,7 @@ public class ButtonSkill : MonoBehaviour
     public KeyCode key;
     public int slotid;
 
+
 	// Use this for initialization
 	void Start ()
 	{

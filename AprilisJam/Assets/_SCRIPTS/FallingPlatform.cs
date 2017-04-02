@@ -24,9 +24,17 @@ public class FallingPlatform : MonoBehaviour {
 
     public IEnumerator Fall()
     {
+        
         yield return new WaitForSeconds(fallDelay);
         rb.isKinematic = false;
         GetComponent<Collider2D>().isTrigger = true;
+        for (int i = 0; i < this.transform.childCount; i++)
+        {
+            if(this.transform.GetChild(i).tag == "Spikes")
+            {
+                this.transform.GetChild(i).transform.GetChild(0).GetComponent<Collider2D>().isTrigger = true;
+            }
+        }
         yield return 0;
 
     }
