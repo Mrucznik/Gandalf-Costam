@@ -22,6 +22,7 @@ public class Shoot : MonoBehaviour
 
             pressTime = Time.time - downTime;
             Instantiate(bullet, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<ShootControl>().setForce(pressTime);
             cooldown = fireRate;
 
         }

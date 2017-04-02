@@ -50,7 +50,11 @@ public class ShootControl : MonoBehaviour {
         }
     }
 
+    public void setForce(float force)
+    {
+        speed *= force * 10;
 
+    }
     public IEnumerator WaitAndDestroy()
     {
         yield return new WaitForSeconds(destroyDelay);
