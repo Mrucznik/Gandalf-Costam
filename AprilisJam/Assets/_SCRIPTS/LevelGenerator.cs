@@ -13,6 +13,9 @@ public class LevelGenerator : MonoBehaviour {
     public List<int> prefabsQuantity;
     public int NumberOfBlocks = 128;
     public int NumberOfRows = 128;
+
+
+
     List<GameObject> Enemies;
     List<GameObject> Level;
     Random rand;
@@ -24,7 +27,7 @@ public class LevelGenerator : MonoBehaviour {
         Enemies = new List<GameObject>();
         Level = new List<GameObject>();
         Vector3 startingPos = Vector3.zero;
-        int blocks = NumberOfBlocks - 8;
+        int blocks = NumberOfBlocks - 10;
         
         
         // First Platform
@@ -48,13 +51,14 @@ public class LevelGenerator : MonoBehaviour {
                     rb.isKinematic = true;
 
 
-                    //if (rand.Next(100) <= 10)
+                    if (rand.Next(100) <= 10)
                         platform.AddComponent<FallingPlatform>();
-                    if (rand.Next(100) <= 40)
+                    if (rand.Next(100) <= 40 && prefabsQuantity[i] > 2)
                     {
                         GameObject enemyN;
                         enemyN = Instantiate(enemyPrefab, platform.transform.position + new Vector3(.5f, 0), Quaternion.identity);
                         Enemies.Add(enemyN);
+                        enemyN.GetComponent<EnemyPatrol>().seed = rand.Next();
                         enemyN.transform.parent = world.transform;
                     }
                     else if(rand.Next(100) <= 80)
