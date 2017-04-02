@@ -5,7 +5,10 @@ using Random = System.Random;
 
 public class LevelGenerator : MonoBehaviour {
 
-    public GameObject enemy;
+    public GameObject enemyPrefab;
+    public GameObject spikesPrefab;
+    public GameObject playerPrefab;
+
     public List<GameObject> prefabs;
     public List<int> prefabsQuantity;
     public int NumberOfBlocks = 128;
@@ -26,7 +29,8 @@ public class LevelGenerator : MonoBehaviour {
         GameObject platformFirst = Instantiate(prefabs[8], startingPos, Quaternion.identity);
         platformFirst.transform.SetParent(world.transform);
         Level.Add(platformFirst);
-        startingPos.x += 8;
+        Instantiate(playerPrefab, startingPos + new Vector3(2, 2, 0), Quaternion.identity);
+        startingPos.x += 10;
         for (int j = 0; j < NumberOfRows; j++)
         {
             while (blocks > 0)
@@ -43,8 +47,21 @@ public class LevelGenerator : MonoBehaviour {
                     if (rand.Next(100) <= 40)
                     {
                         GameObject enemyN;
-                        enemyN = Instantiate(enemy, platform.transform.position + new Vector3(.5f, 0), Quaternion.identity);
-                        Enemies.Add( enemyN );
+                        enemyN = Instantiate(enemyPrefab, platform.transform.position + new Vector3(.5f, 0), Quaternion.identity);
+                        Enemies.Add(enemyN);
+                        enemyN.transform.parent = world.transform;
+                    }
+                    else if(rand.Next(100) <= 80)
+                    {
+                        Vector2 temp = startingPos;
+                        for (int k = 0; k < prefabsQuantity[i]; k++)
+                        {
+                            if (rand.Next(100) <= 20)
+                            {
+                                Instantiate(spikesPrefab, temp, Quaternion.identity);
+                            }
+                            temp.x++;
+                        }
                     }
                     Level.Add(platform);
                     startingPos.x += prefabsQuantity[i] + rand.Next(4, 6);
