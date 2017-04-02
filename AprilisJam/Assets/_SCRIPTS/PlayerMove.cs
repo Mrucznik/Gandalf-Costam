@@ -82,6 +82,7 @@ public class PlayerMove : MonoBehaviour
                 case BonusBehavioursEnum.RotateCamera:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
+
                         Camera.main.transform.Rotate(0, 0, 90 * Time.deltaTime);
                     }
                     else
