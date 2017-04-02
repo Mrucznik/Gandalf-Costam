@@ -13,7 +13,7 @@ public class Jumping : MonoBehaviour
     public LayerMask whatIsGround;
     private bool grounded;
     private Animator anim;
-    public float jumpForce = 300f;
+    public float jumpForce;
 
     void Start()
     {
@@ -39,9 +39,8 @@ public class Jumping : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetAxis("Jump") > 0 && (( isGrounded || jump2 < 1 )))
+        if (Input.GetKeyDown(KeyCode.Space) && (( isGrounded || jump2 < 1 )))
         {
-
             anim.SetBool("jump",true);
         
             rb.AddForce(new Vector2(0, jumpForce));

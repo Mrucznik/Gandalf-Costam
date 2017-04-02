@@ -31,7 +31,6 @@ public class ShootControl : MonoBehaviour {
 	void Update () {
         StartCoroutine("WaitAndDestroy");
         GetComponent<Rigidbody2D>().velocity = new Vector2(speed * transform.localScale.x, GetComponent<Rigidbody2D>().velocity.y);
-
     }
 
 
@@ -39,9 +38,9 @@ public class ShootControl : MonoBehaviour {
     {
         Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
         Destroy(gameObject);
-
         if (other.gameObject.tag == "Enemy")
         {
+            
             other.gameObject.GetComponent<EnemyHealtControl>().giveDMG(damage);
         }
         if (other.gameObject.tag != "Player")
