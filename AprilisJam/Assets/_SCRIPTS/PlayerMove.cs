@@ -10,7 +10,8 @@ using Random = System.Random;
 
 public class PlayerMove : MonoBehaviour
 {
-    private List<Bonus> bonusy = new List<Bonus>();
+    public List<Bonus> bonusy = new List<Bonus>();
+    private const int maxBonus = 5;
 
     private Animator anim;
     private int moveiterator = 0;
@@ -26,6 +27,8 @@ public class PlayerMove : MonoBehaviour
         if (col.gameObject.tag == "Gift")
         {
             var bonus = new Bonus(CreateRandomBonus());
+            if(bonusy.Count == maxBonus)
+                bonus.Activate();
             bonusy.Add(bonus);
             Destroy(col.gameObject);
         }
