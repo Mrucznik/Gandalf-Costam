@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using Assets._BACKEND.Bonus;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BonusManager : MonoBehaviour
 {
     public GameObject prefabGift;
+    public bool skillCooldown;
 
     void Start()
     {
@@ -15,9 +17,10 @@ public class BonusManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && !skillCooldown)
         {
             CreateGift(Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+            SetGiftCooldown();
         }
     }
 
@@ -26,5 +29,20 @@ public class BonusManager : MonoBehaviour
         Instantiate(prefabGift, vector, quaternion);
     }
 
-    
+    private void SetGiftCooldown()
+    {
+        var button = GameObject.Find("GiftButton");
+        skillCooldown = true;
+        button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().sprites[1];
+        StartCoroutine(resetCooldown());
+    }
+
+    public IEnumerator resetCooldown()
+    {
+        yield return new WaitForSeconds(10);
+        skillCooldown = false;
+        var button = GameObject.Find("GiftButton");
+        button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().sprites[0];
+        yield return 0;
+    }
 }

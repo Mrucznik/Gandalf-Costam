@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ShootControl : MonoBehaviour {
 
-    public float damage, scale;
+    public float damage;
     public float destroyDelay;
-    public float speed;
+    public float speed, scale;
     public PlayerMove rb;
     public GameObject deathParticle;
     public GameObject brokenBullet;
@@ -20,7 +19,6 @@ public class ShootControl : MonoBehaviour {
         if(rb.znak >  0)
         {
             transform.localScale = new Vector3(-1 * scale, 1 * scale, 1 * scale);
-
         }
         else
         {
@@ -54,14 +52,17 @@ public class ShootControl : MonoBehaviour {
     public void setForce(float force)
     {
         speed = 30;
-        speed *= 1/(force*2);
+        speed *= 1 / (force * 2);
         damage = 3;
         damage = Mathf.Pow(damage, force);
         scale = 1;
         scale = force;
-        print("Speed "+speed + " dmg " + damage + " scale " + scale);
+        print("Speed " + speed + " dmg " + damage + " scale " + scale);
 
     }
+
+
+
     public IEnumerator WaitAndDestroy()
     {
         yield return new WaitForSeconds(destroyDelay);
