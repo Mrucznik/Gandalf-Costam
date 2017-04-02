@@ -39,7 +39,7 @@ public class Jumping : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown("space") && (( isGrounded || jump2 < 1 )))
+        if (Input.GetAxis("Jump") > 0 && (( isGrounded || jump2 < 1 )))
         {
 
             anim.SetBool("jump",true);

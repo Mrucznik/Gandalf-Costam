@@ -10,7 +10,7 @@ public class Shoot : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E) && cooldown <= 0f)
+        if (Input.GetAxis("FireButton") > 0 && cooldown <= 0f)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
             cooldown = fireRate;
