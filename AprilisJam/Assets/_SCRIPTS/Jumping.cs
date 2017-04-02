@@ -13,6 +13,7 @@ public class Jumping : MonoBehaviour
     public LayerMask whatIsGround;
     private bool grounded;
     private Animator anim;
+    public float jumpForce = 300f;
 
     void Start()
     {
@@ -43,7 +44,7 @@ public class Jumping : MonoBehaviour
 
             anim.SetBool("jump",true);
         
-            rb.AddForce(new Vector2(0, 200f));
+            rb.AddForce(new Vector2(0, jumpForce));
             jump2++;
         }
     }
