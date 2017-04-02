@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+ 
+
 public class FallingPlatform : MonoBehaviour {
 
     private Rigidbody2D rb;
+    public float fallDelay;
 
     void Start()
     {
@@ -15,8 +18,17 @@ public class FallingPlatform : MonoBehaviour {
     {
         if(col.gameObject.CompareTag("Player"))
         {
-            rb.bodyType = 0;
+            StartCoroutine(Fall());
         }
+    }
+
+    public IEnumerator Fall()
+    {
+        yield return new WaitForSeconds(fallDelay);
+        rb.isKinematic = false;
+        GetComponent<Collider2D>().isTrigger = false;
+        yield return 0;
+
     }
 
     void Update()

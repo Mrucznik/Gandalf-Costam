@@ -33,10 +33,15 @@
             _active = 1;
         }
 
+        public void PassiveMode()
+        {
+            _active = 2;
+        }
+
         public virtual void DeactivateBehaviour()
         {
             _state?.Hide();
-            _active = 2;
+            _active = 3;
         }
 
         public virtual int GetBehaviourState()

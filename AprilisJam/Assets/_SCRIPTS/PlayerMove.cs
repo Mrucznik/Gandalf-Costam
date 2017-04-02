@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security;
 using System.Timers;
 using Assets._BACKEND.Bonus;
@@ -22,10 +23,9 @@ public class PlayerMove : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Gift")
+        if (col.gameObject.tag == "Gift")
         {
             var bonus = new Bonus(CreateRandomBonus());
-            bonus.Activate();
             bonusy.Add(bonus);
             Destroy(col.gameObject);
         }
@@ -38,9 +38,9 @@ public class PlayerMove : MonoBehaviour
         Random rand = new Random();
         int random = rand.Next(0, 100);
 
-        if(random < 10)
+        if (random < 10)
             return new BonusBehaviour(BonusBehavioursEnum.ConsoleLog);
-        if(random < 20)
+        if (random < 20)
             return new BonusBehaviour(BonusBehavioursEnum.Invisibility);
         return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
     }
@@ -56,6 +56,7 @@ public class PlayerMove : MonoBehaviour
                 case BonusBehavioursEnum.ConsoleLog:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
+                        bonus.Behaviour.PassiveMode();
                         Debug.Log("Console log behaviour activated!");
                     }
                     else
@@ -70,25 +71,36 @@ public class PlayerMove : MonoBehaviour
                     }
                     else
                     {
-                        
+
                     }
                     break;
                 case BonusBehavioursEnum.Invisibility:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
+                        bonus.Behaviour.PassiveMode();
                         this.GetComponent<SpriteRenderer>().enabled = false;
                     }
-                    else 
+                    else
                     {
                         this.GetComponent<SpriteRenderer>().enabled = true;
                     }
                     break;
             }
         }
+
+        bonusy.RemoveAll(item => item.GetBehaviourState() == 3);
+    }
+
+    public void aktywujZachowanie()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            bonusy.Find(item => item.GetBehaviourState() == 0)?.Activate();
+        }
     }
 
 
-    public float speed = 2.0f;
+public float speed = 2.0f;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
@@ -116,6 +128,7 @@ public class PlayerMove : MonoBehaviour
         }
 
 
+        aktywujZachowanie();
         Behaviours();
     }
    
