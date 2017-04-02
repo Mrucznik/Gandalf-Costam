@@ -9,21 +9,29 @@ public class DeaRespManager : MonoBehaviour {
     public GameObject deathParticle;
     public GameObject respawnParticle;
     public float respawnDelay;
+
+    float downTime, countTime;
+    
     // Use this for initialization
     void Start () {
         player = FindObjectOfType<PlayerMove>();
-	}
+
+        downTime = Time.time;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        
 
+        
     }
 
     public void RespawnPlayer()
     {
+
         StartCoroutine("RespawnPlayerCo");
-        
+        countTime = Time.time - downTime;
+        downTime = Time.time;
+
     }
     public  IEnumerator RespawnPlayerCo()
     {

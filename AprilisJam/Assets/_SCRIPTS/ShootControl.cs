@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShootControl : MonoBehaviour {
 
-    public int damage;
+    public float damage, scale;
     public float destroyDelay;
     public float speed;
     public PlayerMove rb;
@@ -19,11 +19,12 @@ public class ShootControl : MonoBehaviour {
         
         if(rb.znak >  0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-1 * scale, 1 * scale, 1 * scale);
+
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1 * scale, 1 * scale, 1 * scale);
         }
 	}
 	
@@ -52,7 +53,13 @@ public class ShootControl : MonoBehaviour {
 
     public void setForce(float force)
     {
-        speed *= force * 10;
+        speed = 30;
+        speed *= 1/(force*2);
+        damage = 3;
+        damage = Mathf.Pow(damage, force);
+        scale = 1;
+        scale = force;
+        print("Speed "+speed + " dmg " + damage + " scale " + scale);
 
     }
     public IEnumerator WaitAndDestroy()
