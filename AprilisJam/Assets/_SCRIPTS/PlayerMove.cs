@@ -42,9 +42,9 @@ public class PlayerMove : MonoBehaviour
         int random = rand.Next(0, 100);
 
         if (random < 10)
-            return new BonusBehaviour(BonusBehavioursEnum.ConsoleLog);
-        if (random < 20)
             return new BonusBehaviour(BonusBehavioursEnum.Invisibility);
+        if (random < 99)
+            return new BonusBehaviour(BonusBehavioursEnum.Kill);
         return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
     }
 
@@ -80,12 +80,20 @@ public class PlayerMove : MonoBehaviour
                 case BonusBehavioursEnum.Invisibility:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
-                        bonus.Behaviour.PassiveMode();
                         this.GetComponent<SpriteRenderer>().enabled = false;
                     }
                     else
                     {
                         this.GetComponent<SpriteRenderer>().enabled = true;
+                    }
+                    break;
+                case BonusBehavioursEnum.Kill:
+                    if (bonus.Behaviour.GetBehaviourState() == 1)
+                    { 
+                        DeaRespManager levelManager;
+                        levelManager = FindObjectOfType<DeaRespManager>();
+                        levelManager.RespawnPlayer();
+                        bonus.Behaviour.DeactivateBehaviour();
                     }
                     break;
             }
