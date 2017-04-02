@@ -20,9 +20,11 @@ public class ButtonSkill : MonoBehaviour
 	void Update () {
 	    if (Input.GetKeyDown(key))
 	    {
-	        var lol = GameObject.Find("Player").GetComponent<PlayerMove>().bonusy.FindAll(item => item.GetBehaviourState() == 0);
+	        var playerMove = GameObject.Find("Player").GetComponent<PlayerMove>();
+            var lol = playerMove.bonusy.FindAll(item => item.GetBehaviourState() == 0);
             if(lol.Count > slotid)
                 lol.ElementAt(slotid)?.Activate();
-        }
+	        playerMove.SetButtonsTextures();
+	    }
 	}
 }
