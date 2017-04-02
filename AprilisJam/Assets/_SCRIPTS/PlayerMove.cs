@@ -12,6 +12,9 @@ using Random = System.Random;
 public class PlayerMove : MonoBehaviour
 {
     public List<Sprite> buttonSprites;
+    public List<Sprite> buttonSpritesUnactive;
+
+    public bool skillCooldown;
 
     public DeaRespManager levelManager;
     public List<Bonus> bonusy = new List<Bonus>();
@@ -44,7 +47,12 @@ public class PlayerMove : MonoBehaviour
 
     public void SetButtonsTextures()
     {
-        var sprites = GameObject.Find("Player").GetComponent<PlayerMove>().buttonSprites;
+        List<Sprite> sprites;
+        if(skillCooldown)
+            sprites = GameObject.Find("Player").GetComponent<PlayerMove>().buttonSpritesUnactive;
+        else
+            sprites = GameObject.Find("Player").GetComponent<PlayerMove>().buttonSprites;
+
         var activeBonusList = GameObject.Find("Player").GetComponent<PlayerMove>().bonusy.FindAll(item => item.GetBehaviourState() == 0);
 
         GameObject buttony = GameObject.Find("ButtonContainer");
@@ -76,7 +84,6 @@ public class PlayerMove : MonoBehaviour
             }
             else //pusty
             {
-                Debug.Log($"LOL: {activeBonusList.Count}");
                 SetButtonSprite(buttonObject, sprites[0]);
             }
         }
@@ -84,7 +91,6 @@ public class PlayerMove : MonoBehaviour
 
     private void SetButtonSprite(Transform buttonObject, Sprite sprite)
     {
-        Debug.Log(sprite.ToString());
         buttonObject.GetComponent<Image>().sprite = sprite;
     }
 
