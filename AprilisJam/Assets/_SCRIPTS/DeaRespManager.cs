@@ -9,14 +9,12 @@ public class DeaRespManager : MonoBehaviour {
     public GameObject deathParticle;
     public GameObject respawnParticle;
     public float respawnDelay;
-
-    float downTime, countTime;
     
     // Use this for initialization
     void Start () {
         player = FindObjectOfType<PlayerMove>();
+        
 
-        downTime = Time.time;
     }
 	
 	// Update is called once per frame
@@ -27,14 +25,15 @@ public class DeaRespManager : MonoBehaviour {
 
     public void RespawnPlayer()
     {
-
+        ScoreManag.CountTime(1);
         StartCoroutine("RespawnPlayerCo");
-        countTime = Time.time - downTime;
-        downTime = Time.time;
+        
 
     }
     public  IEnumerator RespawnPlayerCo()
     {
+        
+
         Instantiate(deathParticle, player.transform.position, player.transform.rotation);
         player.enabled = false;
         player.GetComponent<Renderer>().enabled = false;
