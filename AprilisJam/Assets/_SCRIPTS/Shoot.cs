@@ -13,7 +13,7 @@ public class Shoot : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.JoystickButton5))
         {
             downTime = Time.time;
         }
@@ -22,7 +22,7 @@ public class Shoot : MonoBehaviour
 
             pressTime = Time.time - downTime;
             Instantiate(bullet, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<ShootControl>().setForce(pressTime);
+            bullet.GetComponent<ShootControl>().setForce(5);
             cooldown = fireRate;
 
         }

@@ -48,7 +48,7 @@ public class LevelGenerator : MonoBehaviour {
                     rb.isKinematic = true;
 
 
-                    //if (rand.Next(100) <= 10)
+                    if (rand.Next(100) <= 10)
                         platform.AddComponent<FallingPlatform>();
                     if (rand.Next(100) <= 40)
                     {

@@ -39,7 +39,7 @@ public class Jumping : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && (( isGrounded || jump2 < 1 )))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && (( isGrounded || jump2 < 1 )))
         {
             anim.SetBool("jump",true);
         
