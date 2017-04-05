@@ -21,11 +21,11 @@ public class CursorLaunchBehaviour : MonoBehaviour {
         {
             
             rbPlayer.AddForce((Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position).normalized * 1000);
-            SetGiftCooldown();
+            SetMagnetCooldown();
         }
     }
 
-    private void SetGiftCooldown()
+    private void SetMagnetCooldown()
     {
         var button = GameObject.Find("MagnetButton");
         skillCooldown = true;
