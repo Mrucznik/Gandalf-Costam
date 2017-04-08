@@ -15,11 +15,11 @@ public class Shoot : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button5))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
              downTime = Time.time;
         }
-        if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button5))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Joystick1Button5))
         {
 
             pressTime = Time.time - downTime;

@@ -37,13 +37,13 @@ namespace Assets._BACKEND.Bonus
         private void ActivateBehaviour()
         {
             Behaviour.ActivateBehaviour(behaviourtime);
-            behaviourTimer?.Start();
+            behaviourTimer.Start();
         }
 
         private void DeactivateBehaviour()
         {
             Behaviour.DeactivateBehaviour();
-            behaviourTimer?.Stop();
+            behaviourTimer.Stop();
         }
 
         public int GetBehaviourState()

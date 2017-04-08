@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour
 
         GameObject buttony = GameObject.Find("ButtonContainer");
 
-        for (int i = 0; i < buttony.transform.childCount; i++)
+        for (int i = 0; i < buttony.transform.childCount-2; i++)
         {
             var buttonObject = buttony.transform.GetChild(i);
 
@@ -69,8 +69,10 @@ public class PlayerMove : MonoBehaviour
                 {
                     case BonusBehavioursEnum.ConsoleLog:
                         SetButtonSprite(buttonObject, sprites[1]);
+                        
                         break;
                     case BonusBehavioursEnum.RotateCamera:
+                        
                         SetButtonSprite(buttonObject, sprites[1]);
                         break;
                     case BonusBehavioursEnum.Invisibility:
@@ -85,7 +87,7 @@ public class PlayerMove : MonoBehaviour
             }
             else //pusty
             {
-                SetButtonSprite(buttonObject, sprites[0]);
+                SetButtonSprite(buttonObject, sprites[3]);
             }
         }
     }
@@ -112,11 +114,12 @@ public class PlayerMove : MonoBehaviour
 
         if (random < 20)
             return new BonusBehaviour(BonusBehavioursEnum.Invisibility);
-        if (random < 22)
+        else if (random < 22)
             return new BonusBehaviour(BonusBehavioursEnum.Kill);
+        else
         return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
     }
-
+    
     private void Behaviours()
     {
         foreach (var bonus in bonusy)
@@ -129,23 +132,23 @@ public class PlayerMove : MonoBehaviour
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
                         bonus.Behaviour.PassiveMode();
-                        Debug.Log("Console log behaviour activated!");
+                        //Debug.Log("Console log behaviour activated!");
                     }
                     else
                     {
-                        Debug.Log("Console log behaviour deactivated!");
+                       // Debug.Log("Console log behaviour deactivated!");
                     }
                     break;
                 case BonusBehavioursEnum.RotateCamera:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
-                        Debug.Log("Console log behaviour activated!");
+                       // Debug.Log("Console log behaviour activated!");
                         Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, new Quaternion(0, 0, Camera.main.transform.rotation.z + 0.1f, 0), 1f * Time.deltaTime);
                     }
                     else
                     {
                         
-                        Debug.Log("Console log behaviour deactivated!");
+                        //Debug.Log("Console log behaviour deactivated!");
                     }
                     break;
                 case BonusBehavioursEnum.Invisibility:

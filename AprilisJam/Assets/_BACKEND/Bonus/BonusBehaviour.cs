@@ -25,12 +25,12 @@
 
         public void UpdateBehaviourTime(int time)
         {
-            _state?.UpdateTime(time);
+            _state.UpdateTime(time);
         }
 
         public virtual void ActivateBehaviour(int time)
         {
-            _state?.Display(time);
+            _state.Display(time);
             _active = 1;
         }
 
@@ -41,7 +41,7 @@
 
         public virtual void DeactivateBehaviour()
         {
-            _state?.Hide();
+            _state.Hide();
             _active = 3;
         }
 
@@ -53,7 +53,7 @@
         public virtual void Update()
         {
             if(_active == 1)
-                _state?.Update();
+                _state.Update();
         }
     }
 }

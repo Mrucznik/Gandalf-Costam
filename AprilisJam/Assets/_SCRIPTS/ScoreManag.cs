@@ -26,7 +26,7 @@ public class ScoreManag : MonoBehaviour {
 
         ScoreManag.CountTime(0);
 
-        text.text = "" + time;
+        text.text = "" + System.Math.Round(time, 2);
     }
 
     public static void CountTime (int stop)

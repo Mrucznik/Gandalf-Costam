@@ -24,7 +24,7 @@ public class ButtonSkill : MonoBehaviour
         {
             var lol = playerMove.bonusy.FindAll(item => item.GetBehaviourState() == 0);
             if (lol.Count > slotid)
-                lol.ElementAt(slotid)?.Activate();
+                lol.ElementAt(slotid).Activate();
 
             playerMove.skillCooldown = true;
             StartCoroutine(resetCooldown());
