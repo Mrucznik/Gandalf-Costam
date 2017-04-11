@@ -77,7 +77,7 @@ public class PlayerMove : MonoBehaviour
                         SetButtonSprite(buttonObject, sprites[2]);
                         break;
                     case BonusBehavioursEnum.Kill:
-                        SetButtonSprite(buttonObject, sprites[0]);
+                        SetButtonSprite(buttonObject, sprites[3]);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -111,9 +111,9 @@ public class PlayerMove : MonoBehaviour
         Random rand = new Random();
         int random = rand.Next(0, 100);
 
-        if (random < 30)
+        if (random < 45)
             return new BonusBehaviour(BonusBehavioursEnum.Invisibility);
-        if (random < 60)
+        if (random < 50)
             return new BonusBehaviour(BonusBehavioursEnum.Kill);
         return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
     }
@@ -145,7 +145,7 @@ public class PlayerMove : MonoBehaviour
                     }
                     else
                     {
-
+                        Camera.main.transform.Rotate(0, 0, -Camera.main.transform.rotation.z);
                     }
                     break;
                 case BonusBehavioursEnum.Invisibility:

@@ -39,7 +39,7 @@ public class BonusManager : MonoBehaviour
 
     public IEnumerator resetCooldown()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         skillCooldown = false;
         var button = GameObject.Find("GiftButton");
         button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().sprites[0];

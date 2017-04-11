@@ -6,6 +6,7 @@ using Random = System.Random;
 public class LevelGenerator : MonoBehaviour {
 
     public GameObject enemyPrefab;
+    public GameObject enemy2Prefab; 
     public GameObject spikesPrefab;
     public GameObject playerPrefab;
 
@@ -53,10 +54,16 @@ public class LevelGenerator : MonoBehaviour {
 
                     if (rand.Next(100) <= 10)
                         platform.AddComponent<FallingPlatform>();
+                    if (rand.Next(100) <= 20 && prefabsQuantity[i] > 2)
+                    {
+                        GameObject enemyN = Instantiate(enemy2Prefab, platform.transform.position + new Vector3(1f, 3f), Quaternion.identity);
+                        Enemies.Add(enemyN);
+                        enemyN.GetComponent<EnemyPatrol>().seed = rand.Next();
+                        enemyN.transform.parent = world.transform;
+                    }
                     if (rand.Next(100) <= 40 && prefabsQuantity[i] > 2)
                     {
-                        GameObject enemyN;
-                        enemyN = Instantiate(enemyPrefab, platform.transform.position + new Vector3(.5f, 0), Quaternion.identity);
+                        GameObject enemyN = Instantiate(enemyPrefab, platform.transform.position + new Vector3(.5f, 0), Quaternion.identity);
                         Enemies.Add(enemyN);
                         enemyN.GetComponent<EnemyPatrol>().seed = rand.Next();
                         enemyN.transform.parent = world.transform;

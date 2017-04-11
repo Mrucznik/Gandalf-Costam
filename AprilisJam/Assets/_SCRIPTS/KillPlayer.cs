@@ -19,7 +19,7 @@ public class KillPlayer : MonoBehaviour {
     {
         if(other.gameObject.tag == "Player")
         {
-            levelManager?.RespawnPlayer();
+            levelManager.RespawnPlayer();
         }
     }
 }
