@@ -100,7 +100,6 @@ public class PlayerMove : MonoBehaviour
         Debug.Log(col.gameObject.tag);
         if (col.gameObject.tag == "Spikes")
         {
-            Debug.Log("Hehe");
             levelManager.RespawnPlayer();
         }
     }
@@ -111,9 +110,9 @@ public class PlayerMove : MonoBehaviour
         Random rand = new Random();
         int random = rand.Next(0, 100);
 
-        if (random < 45)
+        if (random < 20)
             return new BonusBehaviour(BonusBehavioursEnum.Invisibility);
-        if (random < 50)
+        if (random < 22)
             return new BonusBehaviour(BonusBehavioursEnum.Kill);
         return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
     }
@@ -140,12 +139,13 @@ public class PlayerMove : MonoBehaviour
                 case BonusBehavioursEnum.RotateCamera:
                     if (bonus.Behaviour.GetBehaviourState() == 1)
                     {
-
-                        Camera.main.transform.Rotate(0, 0, 90 * Time.deltaTime);
+                        Debug.Log("Console log behaviour activated!");
+                        Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, new Quaternion(0, 0, Camera.main.transform.rotation.z + 0.1f, 0), 1f * Time.deltaTime);
                     }
                     else
                     {
-                        Camera.main.transform.Rotate(0, 0, -Camera.main.transform.rotation.z);
+                        
+                        Debug.Log("Console log behaviour deactivated!");
                     }
                     break;
                 case BonusBehavioursEnum.Invisibility:
@@ -166,6 +166,9 @@ public class PlayerMove : MonoBehaviour
                         levelManager.RespawnPlayer();
                         bonus.Behaviour.DeactivateBehaviour();
                     }
+                    break;
+                default:
+                    Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, new Quaternion(0, 0, transform.rotation.z + 0.1f, 0), 1f * Time.deltaTime);
                     break;
             }
         }
