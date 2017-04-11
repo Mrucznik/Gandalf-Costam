@@ -14,7 +14,7 @@ public class UnityScheduler : MonoBehaviour
 	public static UnityTaskScheduler MainThreadScheduler => UpdateScheduler;
 
 	/// <summary>
-	/// Executes tasks in the main thread, Update context.
+	/// Executes tasks in the main thread, UpdateTime context.
 	/// </summary>
 	public static UnityTaskScheduler UpdateScheduler { get; private set; }
 	
@@ -40,7 +40,7 @@ public class UnityScheduler : MonoBehaviour
 	{
 		MainThreadId = Thread.CurrentThread.ManagedThreadId;
 
-		UpdateScheduler = new UnityTaskScheduler("Update");
+		UpdateScheduler = new UnityTaskScheduler("UpdateTime");
 		LateUpdateScheduler = new UnityTaskScheduler("LateUpdate");
 		FixedUpdateScheduler = new UnityTaskScheduler("FixedUpdate");
 

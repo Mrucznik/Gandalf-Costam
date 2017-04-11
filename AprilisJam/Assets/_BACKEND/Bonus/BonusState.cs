@@ -1,28 +1,30 @@
-using System.Timers;
 using UnityEngine;
 
-namespace Assets.Backend.Bonus
+namespace Assets._BACKEND.Bonus
 {
     public class BonusState
     {
-        public BonusState()
+        private string name;
+        public BonusState(string name)
         {
-
+            this.name = name;
         }
 
-        public void Update(int time)
+        public void UpdateTime(int time)
         {
-            Debug.Log($"Bonus aktywny, czas do znikniêcia: {time}");
         }
 
         public void Display(int time)
         {
-            Debug.Log($"Bonus wystartowa³, czas do znikniêcia: {time}");
         }
 
         public void Hide()
         {
-            Debug.Log("Bonus sie skoñczy³.");
+        }
+
+        public void Update()
+        {
+
         }
     }
 }

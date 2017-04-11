@@ -1,8 +1,7 @@
-﻿using System;
-using System.Runtime.Remoting.Lifetime;
-using System.Timers;
+﻿using System.Timers;
+using UnityEngine;
 
-namespace Assets.Backend.Bonus
+namespace Assets._BACKEND.Bonus
 {
     //Klasa odpowiedzialna za bonusy dla gracza 
     public class Bonus
@@ -10,35 +9,24 @@ namespace Assets.Backend.Bonus
         private const int DEFAULT_LIFETIME = 10000;
         private const int DEFAULT_BEHAVIOURTIME = 10000;
         private const int DEFAULT_BEHAVIOURTIMESTEP = 1000;
-
-        private int lifetime;
+        
         private int behaviourtime;
-
-        private Timer lifeTimer;
         private Timer behaviourTimer;
 
-        private BonusBehaviour _behaviour;
-        private BonusObject _object;
+        public BonusBehaviour Behaviour;
 
-        public Bonus(BonusBehaviour behaviour, BonusObject @object, int lifetime = DEFAULT_LIFETIME, int behaviourtime = DEFAULT_BEHAVIOURTIME)
+        public Bonus(BonusBehaviour behaviour, int behaviourtime = DEFAULT_BEHAVIOURTIME)
         {
             SetBonusBehaviour(behaviour);
-            SetBonusObject(@object);
-
-            this.lifetime = lifetime;
+            
             this.behaviourtime = behaviourtime;
 
             InitializeTimers();
         }
 
-        public Bonus(BonusBehaviour behaviour, int lifetime = DEFAULT_LIFETIME, int behaviourtime = DEFAULT_BEHAVIOURTIME)
+        public void Update()
         {
-            SetBonusBehaviour(behaviour);
-
-            this.lifetime = lifetime;
-            this.behaviourtime = behaviourtime;
-
-            InitializeTimers();
+            Behaviour.Update();
         }
 
         public void Activate()
@@ -46,56 +34,37 @@ namespace Assets.Backend.Bonus
             ActivateBehaviour();
         }
 
-        public void PickUp()
-        {
-            DisplayObject();
-        }
-
-        private void DisplayObject()
-        {
-            _object.Display();
-            lifeTimer.Start();
-        }
-
-        private void DestroyObject()
-        {
-            _object.Hide();
-            lifeTimer.Stop();
-        }
-
         private void ActivateBehaviour()
         {
-            _behaviour.ActivateBehaviour(behaviourtime);
-            behaviourTimer.Start();
+            Behaviour.ActivateBehaviour(behaviourtime);
+            behaviourTimer?.Start();
         }
 
         private void DeactivateBehaviour()
         {
-            _behaviour.DeactivateBehaviour();
-            behaviourTimer.Stop();
+            Behaviour.DeactivateBehaviour();
+            behaviourTimer?.Stop();
         }
 
-        private void SetBonusBehaviour(BonusBehaviour b)
+        public int GetBehaviourState()
         {
-            _behaviour = b;
+            return Behaviour.GetBehaviourState();
         }
 
-        private void SetBonusObject(BonusObject b)
+        public void SetBonusBehaviour(BonusBehaviour b)
         {
-            _object = b;
+            Behaviour = b;
+        }
+
+        public void RestartTimers()
+        {
+            InitializeTimers();
         }
 
         private void InitializeTimers()
         {
-            InitializeTimer(out lifeTimer, lifetime, LifeTimerService);
-
-
-            InitializeTimer(out behaviourTimer, DEFAULT_BEHAVIOURTIMESTEP, BehaviourTimerService);
-        }
-
-        private void LifeTimerService(object sender, ElapsedEventArgs args)
-        {
-            DestroyObject();
+            if (behaviourtime != -1)
+                InitializeTimer(out behaviourTimer, DEFAULT_BEHAVIOURTIMESTEP, BehaviourTimerService);
         }
 
         private void BehaviourTimerService(object sender, ElapsedEventArgs args)
@@ -107,7 +76,9 @@ namespace Assets.Backend.Bonus
             }
             else
             {
-                _behaviour.UpdateBehaviourTime(behaviourtime);
+                Behaviour.UpdateBehaviourTime(behaviourtime);
+                if(Behaviour.GetBehaviourState() == 3)
+                    behaviourTimer.Stop();
             }
         }
 

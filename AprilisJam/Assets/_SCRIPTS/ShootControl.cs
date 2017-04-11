@@ -4,25 +4,69 @@ using UnityEngine;
 
 public class ShootControl : MonoBehaviour {
 
-  
-    public float speed;
+    public float damage;
+    public float destroyDelay;
+    public float speed, scale;
     public PlayerMove rb;
+    public GameObject deathParticle;
+    public GameObject brokenBullet;
+    public bool isEnemy = false;
+    public bool isPlayer = false;
     // Use this for initialization
     void Start () {
         rb = FindObjectOfType<PlayerMove>();
-        speed = rb.znak * speed;
+        
+        if(rb.znak >  0)
+        {
+            transform.localScale = new Vector3(-1 * scale, 1 * scale, 1 * scale);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1 * scale, 1 * scale, 1 * scale);
+        }
 	}
 	
-	// Update is called once per frame
+	// UpdateTime is called once per frame
 	void Update () {
-        
-        GetComponent<Rigidbody2D>().velocity = new Vector2(speed, GetComponent<Rigidbody2D>().velocity.y);
+        StartCoroutine("WaitAndDestroy");
+        GetComponent<Rigidbody2D>().velocity = new Vector2(speed * transform.localScale.x, GetComponent<Rigidbody2D>().velocity.y);
     }
 
-    
-    void OnTriggerEnter2D(Collider2D other)
+
+    void OnCollisionEnter2D(Collision2D other)
     {
+        Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
+        Destroy(gameObject);
+        if (other.gameObject.tag == "Enemy")
+        {
+            
+            other.gameObject.GetComponent<EnemyHealtControl>().giveDMG(damage);
+        }
+        if (other.gameObject.tag != "Player")
+        {
+            Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
+            Destroy(gameObject);
+        }
+    }
+
+    public void setForce(float force)
+    {
+        speed = 30;
+        speed *= 1 / (force * 2);
+        damage = 3;
+        damage = Mathf.Pow(damage, force);
+        scale = 1;
+        scale = force;
+        print("Speed " + speed + " dmg " + damage + " scale " + scale);
+
+    }
+
+
+
+    public IEnumerator WaitAndDestroy()
+    {
+        yield return new WaitForSeconds(destroyDelay);
         Destroy(gameObject);
     }
-     
+
 }

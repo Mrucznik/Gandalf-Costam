@@ -1,30 +1,59 @@
-﻿namespace Assets.Backend.Bonus
+﻿namespace Assets._BACKEND.Bonus
 {
-    public abstract class BonusBehaviour
+    public enum BonusBehavioursEnum
     {
-        protected BonusState _state;
-        private bool _active;
+        ConsoleLog,
+        RotateCamera,
+        Invisibility,
+        Kill
+    }
+
+
+    public class BonusBehaviour
+    {
+        public BonusBehaviour(BonusBehavioursEnum type)
+        {
+            _state = new BonusState(type.ToString());
+            _active = 0;
+            this.type = type;
+        }
+
+        private BonusState _state;
+        private string nazwa;
+        private int _active;
+        public BonusBehavioursEnum type;
 
         public void UpdateBehaviourTime(int time)
         {
-            _state?.Update(time);
+            _state?.UpdateTime(time);
         }
 
         public virtual void ActivateBehaviour(int time)
         {
             _state?.Display(time);
-            _active = true;
+            _active = 1;
+        }
+
+        public void PassiveMode()
+        {
+            _active = 2;
         }
 
         public virtual void DeactivateBehaviour()
         {
             _state?.Hide();
-            _active = false;
+            _active = 3;
         }
 
-        public virtual bool IsBehaviourActivated()
+        public virtual int GetBehaviourState()
         {
             return _active;
+        }
+
+        public virtual void Update()
+        {
+            if(_active == 1)
+                _state?.Update();
         }
     }
 }
