@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class destroyParticle : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class DestroyParticle : MonoBehaviour {
 
-    private ParticleSystem thisParticleSystem;
-    // Use this for initialization
-    void Start () {
+        private ParticleSystem _thisParticleSystem;
+        // Use this for initialization
+        void Start () {
 
-        thisParticleSystem = GetComponent<ParticleSystem>();
-    }
+            _thisParticleSystem = GetComponent<ParticleSystem>();
+        }
 	
-	// Update is called once per frame
-	void Update () {
-        if (thisParticleSystem.isPlaying)
-            return;
-        Destroy(gameObject);
+        // Update is called once per frame
+        void Update () {
+            if (_thisParticleSystem.isPlaying)
+                return;
+            Destroy(gameObject);
+        }
     }
 }

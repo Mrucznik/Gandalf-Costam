@@ -1,72 +1,74 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootControl : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class ShootControl : MonoBehaviour {
 
-    public float damage;
-    public float destroyDelay;
-    public float speed, scale;
-    public PlayerMove rb;
-    public GameObject deathParticle;
-    public GameObject brokenBullet;
-    public bool isEnemy = false;
-    public bool isPlayer = false;
-    // Use this for initialization
-    void Start () {
-        rb = FindObjectOfType<PlayerMove>();
+        public float Damage;
+        public float DestroyDelay;
+        public float Speed, Scale;
+        public PlayerMove Rb;
+        public GameObject DeathParticle;
+        public GameObject BrokenBullet;
+        public bool IsEnemy = false;
+        public bool IsPlayer = false;
+        // Use this for initialization
+        void Start () {
+            Rb = FindObjectOfType<PlayerMove>();
         
-        if(rb.znak >  0)
-        {
-            transform.localScale = new Vector3(-1 * scale, 1 * scale, 1 * scale);
+            if(Rb.Znak >  0)
+            {
+                transform.localScale = new Vector3(-1 * Scale, 1 * Scale, 1 * Scale);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1 * Scale, 1 * Scale, 1 * Scale);
+            }
         }
-        else
-        {
-            transform.localScale = new Vector3(1 * scale, 1 * scale, 1 * scale);
-        }
-	}
 	
-	// UpdateTime is called once per frame
-	void Update () {
-        StartCoroutine("WaitAndDestroy");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(speed * transform.localScale.x, GetComponent<Rigidbody2D>().velocity.y);
-    }
-
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
-        Destroy(gameObject);
-        if (other.gameObject.tag == "Enemy")
-        {
-            
-            other.gameObject.GetComponent<EnemyHealtControl>().giveDMG(damage);
+        // UpdateTime is called once per frame
+        void Update () {
+            StartCoroutine("WaitAndDestroy");
+            GetComponent<Rigidbody2D>().velocity = new Vector2(Speed * transform.localScale.x, GetComponent<Rigidbody2D>().velocity.y);
         }
-        if (other.gameObject.tag != "Player")
+
+
+        void OnCollisionEnter2D(Collision2D other)
         {
-            Instantiate(brokenBullet, other.transform.position, other.transform.rotation);
+            Instantiate(BrokenBullet, other.transform.position, other.transform.rotation);
+            Destroy(gameObject);
+            if (other.gameObject.tag == "Enemy")
+            {
+            
+                other.gameObject.GetComponent<EnemyHealtControl>().GiveDmg(Damage);
+            }
+            if (other.gameObject.tag != "Player")
+            {
+                Instantiate(BrokenBullet, other.transform.position, other.transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+
+        public void SetForce(float force)
+        {
+            Speed = 30;
+            Speed *= 1 / (force * 2);
+            Damage = 3;
+            Damage = Mathf.Pow(Damage, force);
+            Scale = 1;
+            Scale = force;
+            print("Speed " + Speed + " dmg " + Damage + " scale " + Scale);
+
+        }
+
+
+
+        public IEnumerator WaitAndDestroy()
+        {
+            yield return new WaitForSeconds(DestroyDelay);
             Destroy(gameObject);
         }
-    }
-
-    public void setForce(float force)
-    {
-        speed = 30;
-        speed *= 1 / (force * 2);
-        damage = 3;
-        damage = Mathf.Pow(damage, force);
-        scale = 1;
-        scale = force;
-        print("Speed " + speed + " dmg " + damage + " scale " + scale);
 
     }
-
-
-
-    public IEnumerator WaitAndDestroy()
-    {
-        yield return new WaitForSeconds(destroyDelay);
-        Destroy(gameObject);
-    }
-
 }

@@ -1,31 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyHealtControl : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class EnemyHealtControl : MonoBehaviour {
 
-    public float enemyHealth;
+        public float EnemyHealth;
 
-    public GameObject deathEffenct;
+        public GameObject DeathEffenct;
 
     
-	// Use this for initialization
-	void Start () {
+        // Use this for initialization
+        void Start () {
 		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-        if(enemyHealth <= 0)
-        {
-            Instantiate(deathEffenct, transform.position, transform.rotation);
-            Destroy(gameObject);
         }
-	}
+	
+        // Update is called once per frame
+        void Update () {
+		
+            if(EnemyHealth <= 0)
+            {
+                Instantiate(DeathEffenct, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
+        }
 
-    public void giveDMG(float DMGtoGive)
-    {
-        enemyHealth -= DMGtoGive;
+        public void GiveDmg(float dmGtoGive)
+        {
+            EnemyHealth -= dmGtoGive;
+        }
     }
 }

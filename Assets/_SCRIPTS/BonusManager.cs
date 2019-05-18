@@ -1,48 +1,49 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using Assets._BACKEND.Bonus;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BonusManager : MonoBehaviour
+namespace Assets._SCRIPTS
 {
-    public GameObject prefabGift;
-    public bool skillCooldown;
-
-    void Start()
+    public class BonusManager : MonoBehaviour
     {
+        public GameObject PrefabGift;
+        public bool SkillCooldown;
 
-    }
+        void Start()
+        {
+
+        }
     
 
-    void Update()
-    {
-        if (Input.GetButtonDown("Fire2") && !skillCooldown)
+        void Update()
         {
-            CreateGift(Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
-            SetGiftCooldown();
+            if (Input.GetButtonDown("Fire2") && !SkillCooldown)
+            {
+                CreateGift(Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+                SetGiftCooldown();
+            }
         }
-    }
 
-    public void CreateGift(Vector2 vector, Quaternion quaternion)
-    {
-        Instantiate(prefabGift, vector, quaternion);
-    }
+        public void CreateGift(Vector2 vector, Quaternion quaternion)
+        {
+            Instantiate(PrefabGift, vector, quaternion);
+        }
 
-    private void SetGiftCooldown()
-    {
-        var button = GameObject.Find("GiftButton");
-        skillCooldown = true;
-        button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().sprites[1];
-        StartCoroutine(resetCooldown());
-    }
+        private void SetGiftCooldown()
+        {
+            var button = GameObject.Find("GiftButton");
+            SkillCooldown = true;
+            button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().Sprites[1];
+            StartCoroutine(ResetCooldown());
+        }
 
-    public IEnumerator resetCooldown()
-    {
-        yield return new WaitForSeconds(5);
-        skillCooldown = false;
-        var button = GameObject.Find("GiftButton");
-        button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().sprites[0];
-        yield return 0;
+        public IEnumerator ResetCooldown()
+        {
+            yield return new WaitForSeconds(5);
+            SkillCooldown = false;
+            var button = GameObject.Find("GiftButton");
+            button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().Sprites[0];
+            yield return 0;
+        }
     }
 }

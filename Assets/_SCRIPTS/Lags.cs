@@ -1,27 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Timers;
 using UnityEngine;
-using System.Timers;
 
-public class Lags : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class Lags : MonoBehaviour {
 
 
 
-    void Start()
-    {
-        Timer aTimer = new System.Timers.Timer();
-        aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-        aTimer.Interval = 5000;
-        aTimer.Enabled = true;
+        void Start()
+        {
+            Timer aTimer = new System.Timers.Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = 5000;
+            aTimer.Enabled = true;
+
+        }
+
+
+        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            Debug.Log("Hello World!");
+        }
 
     }
-
-
-    private static void OnTimedEvent(object source, ElapsedEventArgs e)
-    {
-       Debug.Log("Hello World!");
-    }
-
 }
 
 

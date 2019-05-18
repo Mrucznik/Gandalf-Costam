@@ -1,54 +1,55 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = System.Random;
 
-public class EnemyPatrol : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class EnemyPatrol : MonoBehaviour {
 
-    public float moveSpeed;
-    public bool moveRight;
+        public float MoveSpeed;
+        public bool MoveRight;
 
-    public Transform wallCheck;
-    public float wallCheckRadius;
-    public LayerMask whatIsWall;
-    private bool hittingWall;
-    public int seed = 1;
-    private bool atEdge;
-    public Transform edgeCheck;
+        public Transform WallCheck;
+        public float WallCheckRadius;
+        public LayerMask WhatIsWall;
+        private bool _hittingWall;
+        public int Seed = 1;
+        private bool _atEdge;
+        public Transform EdgeCheck;
 
-    Random rand;
+        Random _rand;
 
-    // Use this for initialization
-    void Start () {
-        rand = new Random(seed);
-	}
+        // Use this for initialization
+        void Start () {
+            _rand = new Random(Seed);
+        }
 	
-	// Update is called once per frame
-	void Update () {
-        hittingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, whatIsWall);
-        atEdge = Physics2D.OverlapCircle(edgeCheck.position, wallCheckRadius, whatIsWall);
+        // Update is called once per frame
+        void Update () {
+            _hittingWall = Physics2D.OverlapCircle(WallCheck.position, WallCheckRadius, WhatIsWall);
+            _atEdge = Physics2D.OverlapCircle(EdgeCheck.position, WallCheckRadius, WhatIsWall);
 
-        if (hittingWall || !atEdge || rand.Next(1000) < 5)
-        { 
-            if(rand.Next(100) < 5)
-            moveRight =! moveRight;
-        }
-        if (moveRight)
-        {
-            transform.localScale = new Vector3(-5f, 5f, 5f);
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else
-        {
-            transform.localScale = new Vector3(5f, 5f, 5f);
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            if (_hittingWall || !_atEdge || _rand.Next(1000) < 5)
+            { 
+                if(_rand.Next(100) < 5)
+                    MoveRight =! MoveRight;
+            }
+            if (MoveRight)
+            {
+                transform.localScale = new Vector3(-5f, 5f, 5f);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            }
+            else
+            {
+                transform.localScale = new Vector3(5f, 5f, 5f);
+                GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+            }
+
+            if(transform.position.y < 0)
+            {
+                Destroy(gameObject);
+            }
 
         }
-
-        if(transform.position.y < 0)
-        {
-            Destroy(gameObject);
-        }
-
     }
 }

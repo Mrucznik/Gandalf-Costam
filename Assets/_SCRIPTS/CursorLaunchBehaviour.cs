@@ -1,44 +1,46 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CursorLaunchBehaviour : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class CursorLaunchBehaviour : MonoBehaviour {
 
-    GameObject player;
-    Rigidbody2D rbPlayer;
-    public bool skillCooldown;
+        GameObject _player;
+        Rigidbody2D _rbPlayer;
+        public bool SkillCooldown;
 
-    // Use this for initialization
-    void Start () {
-        player = GameObject.Find("Player");
-        rbPlayer = player.GetComponent<Rigidbody2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if(Input.GetButtonDown("Fire1") && !skillCooldown)
-        {
-            
-            rbPlayer.AddForce((Camera.main.ScreenToWorldPoint(Input.mousePosition) - player.transform.position).normalized * 1000);
-            SetMagnetCooldown();
+        // Use this for initialization
+        void Start () {
+            _player = GameObject.Find("Player");
+            _rbPlayer = _player.GetComponent<Rigidbody2D>();
         }
-    }
+	
+        // Update is called once per frame
+        void Update () {
+            if(Input.GetButtonDown("Fire1") && !SkillCooldown)
+            {
+            
+                _rbPlayer.AddForce((Camera.main.ScreenToWorldPoint(Input.mousePosition) - _player.transform.position).normalized * 1000);
+                SetMagnetCooldown();
+            }
+        }
 
-    private void SetMagnetCooldown()
-    {
-        var button = GameObject.Find("MagnetButton");
-        skillCooldown = true;
-        button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().sprites[1];
-        StartCoroutine(resetCooldown());
-    }
+        private void SetMagnetCooldown()
+        {
+            var button = GameObject.Find("MagnetButton");
+            SkillCooldown = true;
+            button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().Sprites[1];
+            StartCoroutine(ResetCooldown());
+        }
 
-    public IEnumerator resetCooldown()
-    {
-        yield return new WaitForSeconds(3);
-        skillCooldown = false;
-        var button = GameObject.Find("MagnetButton");
-        button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().sprites[0];
-        yield return 0;
+        public IEnumerator ResetCooldown()
+        {
+            yield return new WaitForSeconds(3);
+            SkillCooldown = false;
+            var button = GameObject.Find("MagnetButton");
+            button.GetComponent<Image>().sprite = button.GetComponent<ButtonSprites>().Sprites[0];
+            yield return 0;
+        }
     }
 }

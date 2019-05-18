@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PickUpGift : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class PickUpGift : MonoBehaviour {
   
-	void Start () {
-	}
+        void Start () {
+        }
 	
-	void Update () {
+        void Update () {
 		
-	}
+        }
+    }
 }

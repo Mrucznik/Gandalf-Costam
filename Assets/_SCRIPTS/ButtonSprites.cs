@@ -1,17 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSprites : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class ButtonSprites : MonoBehaviour {
 
-    public List<Sprite> sprites;
-    // Use this for initialization
-    void Start () {
+        public List<Sprite> Sprites;
+        // Use this for initialization
+        void Start () {
 		
-	}
+        }
 	
-	// Update is called once per frame
-	void Update () {
+        // Update is called once per frame
+        void Update () {
 		
-	}
+        }
+    }
 }

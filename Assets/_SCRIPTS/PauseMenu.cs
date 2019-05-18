@@ -1,60 +1,65 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine;
 
-public class PauseMenu : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class PauseMenu : MonoBehaviour {
 
-    public GameObject PauseUI;
-    public GameObject rickroll;
+        public GameObject PauseUi;
+        public GameObject Rickroll;
 
-    private bool paused = false;
+        private bool _paused = false;
 
-	void Start ()
-    {
+        void Start ()
+        {
+            PauseUi.SetActive(false);
+        }
+
+        void Update ()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                _paused = !_paused;
+                if (Rickroll.activeSelf)
+                {
+                    AudioListener.pause = false;
+                    Rickroll.SetActive(false);
+                }
+            }
+
+            if (_paused)
+            {
+                PauseUi.SetActive(true);
+                Time.timeScale = 0;
+            }
+
+            if (!_paused)
+            {
+                PauseUi.SetActive(false);
+                Time.timeScale = 1;
+            }
+        }
+
+        public void Resume()
+        {
+            _paused = false;
+        }
+
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         
-        PauseUI.SetActive(false);
-	}
 
-	void Update ()
-    {
-		if (Input.GetKeyDown(KeyCode.Escape))
+        public void MainMenu()
         {
-            paused = !paused;
+            SceneManager.LoadScene(0);
         }
 
-        if (paused)
+        public void Help()
         {
-            PauseUI.SetActive(true);
-            Time.timeScale = 0;
+            AudioListener.pause = true;
+            Rickroll.SetActive(true);
         }
-
-        if (!paused)
-        {
-            PauseUI.SetActive(false);
-            Time.timeScale = 1;
-        }
-    }
-
-    public void Resume()
-    {
-        paused = false;
-    }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-        
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void Help()
-    {
-        rickroll.SetActive(true);
-        rickroll.gameObject.SetActive(true);
     }
 }

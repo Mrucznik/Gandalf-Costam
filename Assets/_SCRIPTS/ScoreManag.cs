@@ -1,48 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine;
 
-public class ScoreManag : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class ScoreManag : MonoBehaviour {
 
-    public static float time;
-    public static float downTime;
-    Text text;
+        public static float Time;
+        public static float DownTime;
+        Text _text;
 
-    private void Start()
-    {
-        text = GetComponent<Text>();
-        time = 0;
-
-        downTime = Time.time;
-
-    }
-
-    void Update()
-    {
-        if (time < 0)
-            time = 0;
-
-
-        ScoreManag.CountTime(0);
-
-        text.text = "" + time;
-    }
-
-    public static void CountTime (int stop)
-    {
-        if (stop == 0)
+        private void Start()
         {
-            time = Time.time - downTime;
+            _text = GetComponent<Text>();
+            Time = 0;
+
+            DownTime = UnityEngine.Time.time;
+
         }
-        else
+
+        void Update()
         {
-            time = 0;
-            downTime = Time.time;
-            Time.timeScale = 0;
+            if (Time < 0)
+                Time = 0;
+
+
+            ScoreManag.CountTime(0);
+
+            _text.text = "" + Time;
+        }
+
+        public static void CountTime (int stop)
+        {
+            if (stop == 0)
+            {
+                Time = UnityEngine.Time.time - DownTime;
+            }
+            else
+            {
+                Time = 0;
+                DownTime = UnityEngine.Time.time;
+                UnityEngine.Time.timeScale = 0;
             
             
+            }
         }
-    }
     
+    }
 }

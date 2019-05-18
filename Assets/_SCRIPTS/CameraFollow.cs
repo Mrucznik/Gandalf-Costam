@@ -1,58 +1,59 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class CameraFollow : MonoBehaviour {
 
-    private Vector2 velocity;
+        private Vector2 _velocity;
 
-    public float smoothTimeX;
-    public float smoothTimeY;
+        public float SmoothTimeX;
+        public float SmoothTimeY;
 
-    //Shake
-    public float shakeTimer;
-    public float shakeAmount;
+        //Shake
+        public float ShakeTimer;
+        public float ShakeAmount;
 
-    public GameObject player;
+        public GameObject Player;
 
-    void Start ()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-	}
+        void Start ()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
 
-    private void FixedUpdate()
-    {
+        private void FixedUpdate()
+        {
         
-        float posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
-        float posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
+            float posX = Mathf.SmoothDamp(transform.position.x, Player.transform.position.x, ref _velocity.x, SmoothTimeX);
+            float posY = Mathf.SmoothDamp(transform.position.y, Player.transform.position.y, ref _velocity.y, SmoothTimeY);
 
-        transform.position = new Vector3(posX, posY, transform.position.z);
+            transform.position = new Vector3(posX, posY, transform.position.z);
 
 
-    }
-
-    //Shake
-    void Update()
-    {
-        if(shakeTimer >= 0)
-        {
-            Vector2 ShakePos = Random.insideUnitCircle * shakeAmount;
-
-            transform.position = new Vector3(transform.position.x + ShakePos.x, transform.position.y + ShakePos.y, transform.position.z);
-
-            shakeTimer -= Time.deltaTime;
-        }
-        if(Input.GetButtonDown("Fire2"))
-        {
-            CameraShake(0.1f, 1);
         }
 
-    }
+        //Shake
+        void Update()
+        {
+            if(ShakeTimer >= 0)
+            {
+                Vector2 shakePos = Random.insideUnitCircle * ShakeAmount;
 
-    //Shale
-    public void CameraShake(float shakePwr, float shakeDur)
-    {
-        shakeAmount = shakePwr;
-        shakeTimer = shakeDur;
+                transform.position = new Vector3(transform.position.x + shakePos.x, transform.position.y + shakePos.y, transform.position.z);
+
+                ShakeTimer -= Time.deltaTime;
+            }
+            if(Input.GetButtonDown("Fire2"))
+            {
+                CameraShake(0.1f, 1);
+            }
+
+        }
+
+        //Shale
+        public void CameraShake(float shakePwr, float shakeDur)
+        {
+            ShakeAmount = shakePwr;
+            ShakeTimer = shakeDur;
+        }
     }
 }

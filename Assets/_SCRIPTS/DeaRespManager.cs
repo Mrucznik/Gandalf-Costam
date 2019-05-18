@@ -1,46 +1,48 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DeaRespManager : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class DeaRespManager : MonoBehaviour {
 
-    private PlayerMove player;
-    public GameObject currentCheckpoint;
-    public GameObject deathParticle;
-    public GameObject respawnParticle;
-    public float respawnDelay;
+        private PlayerMove _player;
+        public GameObject CurrentCheckpoint;
+        public GameObject DeathParticle;
+        public GameObject RespawnParticle;
+        public float RespawnDelay;
     
-    // Use this for initialization
-    void Start () {
-        player = FindObjectOfType<PlayerMove>();
+        // Use this for initialization
+        void Start () {
+            _player = FindObjectOfType<PlayerMove>();
         
 
-    }
+        }
 	
-	// Update is called once per frame
-	void Update () {
+        // Update is called once per frame
+        void Update () {
 
         
-    }
+        }
 
-    public void RespawnPlayer()
-    {
-        ScoreManag.CountTime(1);
-        StartCoroutine("RespawnPlayerCo");
+        public void RespawnPlayer()
+        {
+            ScoreManag.CountTime(1);
+            StartCoroutine("RespawnPlayerCo");
         
 
-    }
-    public  IEnumerator RespawnPlayerCo()
-    {
+        }
+        public  IEnumerator RespawnPlayerCo()
+        {
         
 
-        Instantiate(deathParticle, player.transform.position, player.transform.rotation);
-        player.enabled = false;
-        player.GetComponent<Renderer>().enabled = false;
-        yield return new WaitForSeconds(respawnDelay);
-        player.enabled = true;
-        player.GetComponent<Renderer>().enabled = true;
-        player.transform.position = currentCheckpoint.transform.position;
-        Instantiate(respawnParticle, player.transform.position, player.transform.rotation);        
+            Instantiate(DeathParticle, _player.transform.position, _player.transform.rotation);
+            _player.enabled = false;
+            _player.GetComponent<Renderer>().enabled = false;
+            yield return new WaitForSeconds(RespawnDelay);
+            _player.enabled = true;
+            _player.GetComponent<Renderer>().enabled = true;
+            _player.transform.position = CurrentCheckpoint.transform.position;
+            Instantiate(RespawnParticle, _player.transform.position, _player.transform.rotation);        
+        }
     }
 }

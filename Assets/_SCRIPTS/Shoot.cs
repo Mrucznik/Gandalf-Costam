@@ -1,45 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-
-public class Shoot : MonoBehaviour
+namespace Assets._SCRIPTS
 {
-    volatile float cooldown = 0, fireRate = .5f;
-    public Transform firePoint;
-    public GameObject bullet;
-    float Timer = 0;
-
-    float downTime, pressTime = 0;
-
-    void Update()
+    public class Shoot : MonoBehaviour
     {
+        volatile float _cooldown = 0, _fireRate = .5f;
+        public Transform FirePoint;
+        public GameObject Bullet;
+        float _timer = 0;
 
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button5))
+        float _downTime, _pressTime = 0;
+
+        void Update()
         {
-             downTime = Time.time;
+
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button5))
+            {
+                _downTime = Time.time;
+            }
+            if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button5))
+            {
+
+                _pressTime = Time.time - _downTime;
+                _pressTime *= 2;
+                if (_pressTime >= 5) _pressTime = 5;
+
+                FirePoint.Translate(0, _pressTime * 0.12f, 0);
+                Bullet.GetComponent<ShootControl>().SetForce(_pressTime);
+
+                Instantiate(Bullet, FirePoint.position, FirePoint.rotation);
+                FirePoint.Translate(0, -_pressTime * 0.12f, 0);
+                _cooldown = _fireRate;
+
+            }
+
+            _cooldown -= Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Joystick1Button5))
-        {
-
-            pressTime = Time.time - downTime;
-            pressTime *= 2;
-            if (pressTime >= 5) pressTime = 5;
-
-            firePoint.Translate(0, pressTime * 0.12f, 0);
-            bullet.GetComponent<ShootControl>().setForce(pressTime);
-
-            Instantiate(bullet, firePoint.position, firePoint.rotation);
-            firePoint.Translate(0, -pressTime * 0.12f, 0);
-            cooldown = fireRate;
-
-        }
-
-        cooldown -= Time.deltaTime;
-    }
 
   
 
 
 
+    }
 }

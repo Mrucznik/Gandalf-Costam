@@ -1,27 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraChangingBgColor : MonoBehaviour {
+namespace Assets._SCRIPTS
+{
+    public class CameraChangingBgColor : MonoBehaviour {
 
-    public Color color1 = Color.red;
-    public Color color2 = Color.blue;
-    public float duration = 3.0F;
+        public Color Color1 = Color.red;
+        public Color Color2 = Color.blue;
+        public float Duration = 3.0F;
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-        float t = Mathf.PingPong(Time.time, duration) / duration;
-
-        Camera.main.backgroundColor = Color.Lerp(color1, color2, t);
-        if(Camera.main.backgroundColor == color2)
+        void Start()
         {
-            Color tmp = color2;
-            color2 = color1;
-            color1 = tmp;
+        }
+
+        void Update()
+        {
+            float t = Mathf.PingPong(Time.time, Duration) / Duration;
+
+            Camera.main.backgroundColor = Color.Lerp(Color1, Color2, t);
+            if(Camera.main.backgroundColor == Color2)
+            {
+                Color tmp = Color2;
+                Color2 = Color1;
+                Color1 = tmp;
+            }
         }
     }
 }
