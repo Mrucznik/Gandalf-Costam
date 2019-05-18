@@ -74,7 +74,7 @@ namespace Assets._SCRIPTS
                         case BonusBehavioursEnum.Invisibility:
                             SetButtonSprite(buttonObject, sprites[2]);
                             break;
-                        case BonusBehavioursEnum.Kill:
+                        case BonusBehavioursEnum.Flip:
                             SetButtonSprite(buttonObject, sprites[3]);
                             break;
                         default:
@@ -108,11 +108,12 @@ namespace Assets._SCRIPTS
             Random rand = new Random();
             int random = rand.Next(0, 100);
 
-            if (random < 20)
+            if (random < 33)
                 return new BonusBehaviour(BonusBehavioursEnum.Invisibility);
-            if (random < 22)
-                return new BonusBehaviour(BonusBehavioursEnum.Kill);
-            return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
+            if (random < 66)
+                return new BonusBehaviour(BonusBehavioursEnum.Flip);
+            else 
+                return new BonusBehaviour(BonusBehavioursEnum.RotateCamera);
         }
 
         private void Behaviours()
@@ -137,13 +138,11 @@ namespace Assets._SCRIPTS
                     case BonusBehavioursEnum.RotateCamera:
                         if (bonus.Behaviour.GetBehaviourState() == 1)
                         {
-                            Debug.Log("Console log behaviour activated!");
-                            Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, new Quaternion(0, 0, Camera.main.transform.rotation.z + 0.1f, 0), 1f * Time.deltaTime);
+                            Camera.main.transform.Rotate(0f, 0f, Time.deltaTime * 72f);
                         }
                         else
                         {
-                        
-                            Debug.Log("Console log behaviour deactivated!");
+                            Debug.Log("Rotate view deactivated!");
                         }
                         break;
                     case BonusBehavioursEnum.Invisibility:
@@ -156,17 +155,16 @@ namespace Assets._SCRIPTS
                             this.GetComponent<SpriteRenderer>().enabled = true;
                         }
                         break;
-                    case BonusBehavioursEnum.Kill:
+                    case BonusBehavioursEnum.Flip:
                         if (bonus.Behaviour.GetBehaviourState() == 1)
-                        { 
-                            DeaRespManager levelManager;
-                            levelManager = FindObjectOfType<DeaRespManager>();
-                            levelManager.RespawnPlayer();
-                            bonus.Behaviour.DeactivateBehaviour();
+                        {
+                            Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, new Quaternion(0, 0, Camera.main.transform.rotation.z + 0.1f, 0), 5f * Time.deltaTime);
                         }
-                        break;
-                    default:
-                        Camera.main.transform.rotation = Quaternion.Lerp(Camera.main.transform.rotation, new Quaternion(0, 0, transform.rotation.z + 0.1f, 0), 1f * Time.deltaTime);
+                        else
+                        {
+                            Debug.Log("Flip view deactivated!");
+                            Camera.main.transform.rotation = Quaternion.identity;
+                        }
                         break;
                 }
             }

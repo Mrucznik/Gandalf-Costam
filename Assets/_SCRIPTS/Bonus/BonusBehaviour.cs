@@ -5,7 +5,7 @@
         ConsoleLog,
         RotateCamera,
         Invisibility,
-        Kill
+        Flip
     }
 
 
